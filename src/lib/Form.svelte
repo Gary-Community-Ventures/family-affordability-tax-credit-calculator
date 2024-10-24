@@ -5,6 +5,7 @@
 	import Input from './Input.svelte';
 	import AddButton from './AddButton.svelte';
 	import newErrorMessage from './handleError';
+	import { linear } from 'svelte/easing';
 
 	export let handleSubmit: (
 		isMarried: boolean,
@@ -135,6 +136,9 @@
 				<div>
 					<Income bind:income={item} handleRemove={() => removeIncome(i)} {submitted} />
 				</div>
+				{#if i < incomes.length - 1}
+					<div class="line" />
+				{/if}
 			{/each}
 			<div class="add-button-container">
 				{#if childAges.length < MAX_CHILD_AMOUNT}
@@ -191,5 +195,12 @@
 	.error-message {
 		color: red;
 		font-size: 0.8em;
+	}
+
+	.line {
+		border-bottom: 1px solid #707070;
+		width: 90%;
+		max-width: 30em;
+		margin: 1.5em 0 0 1em;
 	}
 </style>
