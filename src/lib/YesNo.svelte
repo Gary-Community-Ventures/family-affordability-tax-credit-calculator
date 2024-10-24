@@ -4,8 +4,8 @@
 	export let id: string;
 </script>
 
-<div>
-	<div>{label}</div>
+<div class="container">
+	<p>{label}</p>
 	<div>
 		<input type="radio" id={`${id}-yes`} bind:group={value} value={true} />
 		<label for={`${id}-yes`}>Yes</label>
@@ -17,5 +17,25 @@
 </div>
 
 <style>
-	/* your styles go here */
+	.container {
+		font-size: 1.3em;
+	}
+
+	p {
+		margin: 0;
+		padding: .2em 0;
+	}
+
+	label {
+		display: inline-block;
+		font-size: .85em;
+		translate: 0 -.2em;
+	}
+
+	input {
+		font-size: .7em;
+		width: 1.5em;
+		height: 1.5em;
+		margin-top: 0.2em;
+	}
 </style>

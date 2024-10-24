@@ -1,0 +1,155 @@
+import { PUBLIC_MFB_API_KEY, PUBLIC_MFB_DOMAIN } from '$env/static/public';
+
+export type IncomeType = {
+	frequency: string;
+	amount: number | null;
+	hours: number | null;
+};
+
+export type TaxCredit = {
+	id: TaxCreditId;
+	value: number;
+};
+
+export type TaxCreditId = 'ctc' | 'coctc' | 'eitc' | 'coeitc' | 'fatc';
+
+export default class MfbApi {
+	// provide a default age,
+	// since we don't have ages for the head and spouse
+	DEFAULT_AGE = 44;
+
+	MFB_REQUEST_HEADER = {
+		Accept: 'application/json',
+		'Content-Type': 'application/json',
+		Authorization: `TOKEN ${PUBLIC_MFB_API_KEY}`
+	};
+
+	TAX_CREDIT_NAMES: TaxCreditId[] = ['ctc', 'coctc', 'eitc', 'coeitc', 'fatc'];
+
+	uuid: string | null;
+	id: string | null;
+	isMarried: boolean;
+	childAges: number[];
+	incomes: IncomeType[];
+
+	constructor() {
+		this.isMarried = false;
+		this.childAges = [];
+		this.incomes = [];
+		this.uuid = null;
+		this.id = null
+	}
+
+	updateData(isMarried: boolean, childAges: number[], incomes: IncomeType[]) {
+		this.isMarried = isMarried;
+		this.childAges = childAges;
+		this.incomes = incomes;
+	}
+
+	async updateScreen() {
+		const url = this.#upsertScreenUrl();
+		const method = this.#upsertScreenMethod();
+		const data = this.#createApiData();
+
+		const res = await fetch(url, {
+			method: method,
+			headers: this.MFB_REQUEST_HEADER,
+			body: JSON.stringify(data)
+		});
+
+		const resData = await res.json();
+
+		if (this.uuid === null) {
+			this.uuid = resData.uuid;
+			this.id = resData.id;
+		}
+	}
+
+	async getResults(): Promise<TaxCredit[]> {
+		const url = this.#resultsUrl();
+
+		const res = await fetch(url, {
+			method: 'GET',
+			headers: this.MFB_REQUEST_HEADER
+		});
+
+		const data = await res.json();
+
+		const credits: TaxCredit[] = [];
+		for (const program of data.programs) {
+			if (this.TAX_CREDIT_NAMES.includes(program.external_name)) {
+				credits.push({ id: program.external_name, value: program.estimated_value });
+			}
+		}
+
+		return credits;
+	}
+
+	#createApiData() {
+		const urlParams = new URLSearchParams(window.location.search);
+		const isTest = urlParams.get('test') !== null;
+
+		const householdMembers: any[] = [];
+
+		householdMembers.push(this.#createPerson(this.incomes, 'headOfHousehold'));
+
+		if (this.isMarried) {
+			householdMembers.push(this.#createPerson([], 'spouse'));
+		}
+
+		for (const age of this.childAges) {
+			householdMembers.push(this.#createPerson([], 'child', age));
+		}
+
+		const data: any = {
+			is_test: isTest,
+			referrer_code: 'getaheadtaxcalculator',
+			household_size: householdMembers.length,
+			household_members: householdMembers,
+			expenses: []
+		};
+
+		return data;
+	}
+
+	#createPerson(incomes: IncomeType[], relationship: string, age: number = this.DEFAULT_AGE) {
+		return {
+			relationship: relationship,
+			age: age,
+			hasIncome: incomes.length > 0,
+			income_streams: incomes.map((income) => {
+				return {
+					type: 'wages',
+					frequency: income.frequency,
+					amount: income.amount,
+					hours_worked: income.hours
+				};
+			}),
+			insurance: {}
+		};
+	}
+
+	#upsertScreenUrl() {
+		if (this.uuid !== null) {
+			return `${PUBLIC_MFB_DOMAIN}/api/screens/${this.uuid}/`;
+		}
+
+		return `${PUBLIC_MFB_DOMAIN}/api/screens/`;
+	}
+
+	#upsertScreenMethod() {
+		if (this.uuid !== null) {
+			return 'PUT';
+		}
+
+		return 'POST';
+	}
+
+	#resultsUrl() {
+		if (this.uuid === null) {
+			throw new Error('create a screen first with `updateScreen`');
+		}
+
+		return `${PUBLIC_MFB_DOMAIN}/api/eligibility/${this.uuid}`;
+	}
+}

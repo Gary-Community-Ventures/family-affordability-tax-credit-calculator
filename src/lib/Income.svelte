@@ -1,20 +1,18 @@
-<script context="module" lang="ts">
-	export type IncomeType = {
-		frequency: string;
-		amount: number | null;
-		hours: number | null;
-	};
-</script>
-
 <script lang="ts">
+	import type { IncomeType } from './mfbApi';
 	export let income: IncomeType = {
 		frequency: '',
 		amount: null,
 		hours: null
 	};
-
-	import { selectOnFocus } from './actions';
+	export let handleRemove: () => void;
 	export let id: string = '';
+	export let submitted: boolean = false;
+
+	import Input from './Input.svelte';
+	import Select from './Select.svelte';
+	import AddButton from './AddButton.svelte';
+	import newErrorMessage from './handleError';
 
 	$: {
 		if (income.frequency !== 'hourly') {
@@ -25,45 +23,58 @@
 
 <div>
 	<div>
-		<label for={`${id}-income-frequency`}>Income frequency</label>
+		<p class="subquestion">How often are you paid this income?</p>
+		<span class="input-container">
+			<Select
+				bind:value={income.frequency}
+				id={`${id}-income-frequency`}
+				label="Frequency"
+				errorMessage={newErrorMessage(submitted).condition(
+					income.frequency === '',
+					'This field is required'
+				).message}
+			>
+				<option value="weekly">Weekly</option>
+				<option value="biweekly">2 Weeks</option>
+				<option value="semimonthly">Twice a Month</option>
+				<option value="monthly">monthly</option>
+				<option value="hourly">Hourly</option>
+			</Select>
+			<AddButton on:click={handleRemove} icon="&#x2212;">Remove Income</AddButton>
+		</span>
 	</div>
 	<div>
-		<select bind:value={income.frequency} id={`${id}-income-frequency`}>
-			<option value="weekly">Weekly</option>
-			<option value="biweekly">2 Weeks</option>
-			<option value="twiceAMonth">Twice a Month</option>
-			<option value="monthly">monthly</option>
-			<option value="hourly">Hourly</option>
-		</select>
-	</div>
-	<div>
-		<label for={`${id}-income-amount`}>Income amount</label>
-	</div>
-	<div>
-		<input
-			type="number"
+		<p class="subquestion">How much do you make</p>
+		<Input
 			bind:value={income.amount}
 			id={`${id}-income-amount`}
-			min="0"
-			use:selectOnFocus
+			label="Amount"
+			errorMessage={newErrorMessage(submitted).condition(
+				income.amount === null,
+				'This field is required'
+			).message}
 		/>
 	</div>
 	{#if income.frequency === 'hourly'}
 		<div>
-			<label for={`${id}-income-hours-per-week`}>Hours per week</label>
-		</div>
-		<div>
-			<input
-				type="number"
+			<p class="subquestion">How many hours do you work?</p>
+			<Input
 				bind:value={income.hours}
 				id={`${id}-income-hours-per-week`}
-				min="0"
-				use:selectOnFocus
+				label="Hours"
+				errorMessage={newErrorMessage(submitted).condition(
+					income.hours === null,
+					'This field is required'
+				).message}
 			/>
 		</div>
 	{/if}
 </div>
 
 <style>
-	/* your styles go here */
+	.subquestion {
+		font-size: 1.3em;
+		margin: 0;
+		padding: 1em 0 0.6em 0;
+	}
 </style>
