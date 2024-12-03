@@ -39,12 +39,12 @@
 	});
 </script>
 
-<div class="container" bind:this={container}>
-	<h2 class="benefits-header">
-		<div class="primary-heading">FILE 2024 TAXES &#38; RECEIVE</div>
-		<div class="primary-heading">{formatNumber(total)} IN TAX CREDITS</div>
-	</h2>
+<h2 class="benefits-header">
+	<div class="primary-heading">FILE 2024 TAXES &#38; RECEIVE</div>
+	<div class="primary-heading">{formatNumber(total)} IN TAX CREDITS</div>
+</h2>
 
+<div class="container" bind:this={container}>
 	<div class="results-lists">
 		{#if eligbleCredits.length > 0}
 			<div class="section">
@@ -68,16 +68,21 @@
 	</div>
 
 	<div class="section links">
+		<h3 class="primary-heading ways-to-file">FILE FOR FREE</h3>
 		<div class="link-container">
 			<a href="https://google.com" class="primary-button">Something</a>
 		</div>
 		<div class="link-container">
 			<a href="https://google.com" class="primary-button">Something else</a>
 		</div>
+		<h3 class="primary-heading other-filing-options ways-to-file">OTHER FILING OPTIONS</h3>
 		<div class="link-container">
 			<button class="primary-button" on:click={() => (dialogOpen = !dialogOpen)}
 				>Remind me to file</button
 			>
+		</div>
+		<div class="link-container">
+			<a href="https://google.com" class="primary-button">Paid filing options</a>
 		</div>
 	</div>
 
@@ -121,6 +126,7 @@
 		flex-direction: column;
 		width: fit-content;
 		margin: 0;
+		padding: 1rem
 	}
 
 	.section {
@@ -139,7 +145,8 @@
 		padding: 0 1em;
 	}
 
-	.link-container, .mfb-link-container {
+	.link-container,
+	.mfb-link-container {
 		display: flex;
 		justify-content: center;
 	}
@@ -159,20 +166,24 @@
 	}
 
 	@media (min-width: 68rem) {
+		h2.benefits-header {
+			flex-direction: row;
+			gap: 0;
+		}
 		.container {
 			padding: 1rem;
 			display: grid;
-			grid-template-rows: 2fr 6fr 2fr;
+			grid-template-rows: 6fr 2fr;
 			grid-template-columns: 5fr 5fr;
 		}
 
 		.disclaimer {
-			grid-row: 3 / span 1;
+			grid-row: 2 / span 1;
 			grid-column: 1 / span 2;
 		}
 
 		.results-lists {
-			grid-row: 1 / span 2;
+			grid-row: 1 / span 1;
 			grid-column: 2 / span 1;
 			border: 2px solid var(--primary-color);
 			padding: 1em;
@@ -185,6 +196,18 @@
 
 		.link-container {
 			justify-content: start;
+		}
+
+		.ways-to-file {
+			width: fit-content;
+		}
+
+		.other-filing-options {
+			margin-top: 1em;
+		}
+
+		.section {
+			padding: 0;
 		}
 	}
 </style>
