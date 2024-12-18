@@ -36,12 +36,12 @@ const en = {
 						WEEKLY: 'Weekly',
 						BIWEEKLY: '2 Weeks',
 						SEMIMONTHLY: 'Twice a Month',
-						MONTHLY: 'monthly',
+						MONTHLY: 'Monthly',
 						HOURLY: 'Hourly'
 					}
 				},
 				AMOUNT: {
-					QUESTION: 'How much do you receive before taxes each pay period. for this income?',
+					QUESTION: 'How much do you receive before taxes each pay period for this income?',
 					LABEL: 'Amount'
 				},
 				HOURS: {

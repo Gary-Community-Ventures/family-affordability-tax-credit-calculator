@@ -103,7 +103,7 @@ type RootTranslation = {
 						 */
 						SEMIMONTHLY: string
 						/**
-						 * m​o​n​t​h​l​y
+						 * M​o​n​t​h​l​y
 						 */
 						MONTHLY: string
 						/**
@@ -114,7 +114,7 @@ type RootTranslation = {
 				}
 				AMOUNT: {
 					/**
-					 * H​o​w​ ​m​u​c​h​ ​d​o​ ​y​o​u​ ​r​e​c​e​i​v​e​ ​b​e​f​o​r​e​ ​t​a​x​e​s​ ​e​a​c​h​ ​p​a​y​ ​p​e​r​i​o​d​.​ ​f​o​r​ ​t​h​i​s​ ​i​n​c​o​m​e​?
+					 * H​o​w​ ​m​u​c​h​ ​d​o​ ​y​o​u​ ​r​e​c​e​i​v​e​ ​b​e​f​o​r​e​ ​t​a​x​e​s​ ​e​a​c​h​ ​p​a​y​ ​p​e​r​i​o​d​ ​f​o​r​ ​t​h​i​s​ ​i​n​c​o​m​e​?
 					 */
 					QUESTION: string
 					/**
@@ -379,7 +379,7 @@ export type TranslationFunctions = {
 						 */
 						SEMIMONTHLY: () => LocalizedString
 						/**
-						 * monthly
+						 * Monthly
 						 */
 						MONTHLY: () => LocalizedString
 						/**
@@ -390,7 +390,7 @@ export type TranslationFunctions = {
 				}
 				AMOUNT: {
 					/**
-					 * How much do you receive before taxes each pay period. for this income?
+					 * How much do you receive before taxes each pay period for this income?
 					 */
 					QUESTION: () => LocalizedString
 					/**
