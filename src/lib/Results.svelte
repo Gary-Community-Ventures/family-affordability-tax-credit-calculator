@@ -79,9 +79,13 @@
 		<div class="link-container">
 			<a href="https://google.com" class="primary-button">{$t.RESULTS.FILE_FOR_FREE.IN_PERSON()}</a>
 		</div>
-		<h3 class="primary-heading other-filing-options ways-to-file">{$t.RESULTS.OTHER_FILING_OPTIONS.TITLE()}</h3>
+		<h3 class="primary-heading other-filing-options ways-to-file">
+			{$t.RESULTS.OTHER_FILING_OPTIONS.TITLE()}
+		</h3>
 		<div class="link-container">
-			<a href="https://google.com" class="primary-button">{$t.RESULTS.OTHER_FILING_OPTIONS.PAID()}</a>
+			<a href="https://google.com" class="primary-button"
+				>{$t.RESULTS.OTHER_FILING_OPTIONS.PAID()}</a
+			>
 		</div>
 	</div>
 
@@ -91,7 +95,9 @@
 <h2 class="primary-heading">{$t.RESULTS.MFB.TITLE()}</h2>
 <p class="mfb-description">{$t.RESULTS.MFB.DESCRIPTION()}</p>
 <div class="mfb-link-container">
-	<a href={`${PUBLIC_MFB_FRONTEND_DOMAIN}/co/step-1/`} class="primary-button">{$t.RESULTS.MFB.BUTTON()}</a>
+	<a href={`${PUBLIC_MFB_FRONTEND_DOMAIN}/co/step-1/`} class="primary-button"
+		>{$t.RESULTS.MFB.BUTTON()}</a
+	>
 </div>
 
 <style>
@@ -105,7 +111,7 @@
 		flex-direction: column;
 		width: fit-content;
 		margin: 0;
-		padding: 1rem;
+		padding: 1rem 0;
 	}
 
 	.section {
