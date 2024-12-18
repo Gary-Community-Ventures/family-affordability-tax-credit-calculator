@@ -33,4 +33,8 @@
 		padding: 1rem;
 		margin: 0;
 	}
+
+	p {
+		text-align: center;
+	}
 </style>

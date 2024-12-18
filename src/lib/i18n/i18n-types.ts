@@ -19,6 +19,9 @@ type RootTranslation = {
 		 * T​A​X​ ​C​R​E​D​I​T​ ​C​A​L​C​U​L​A​T​O​R
 		 */
 		TITLE: string
+		/**
+		 * M​o​s​t​ ​C​o​l​o​r​a​d​o​ ​r​e​s​i​d​e​n​t​s​ ​a​r​e​ ​e​l​i​g​i​b​l​e​ ​f​o​r​ ​s​e​v​e​r​a​l​ ​l​o​c​a​l​ ​a​n​d​ ​f​e​d​e​r​a​l​ ​t​a​x​ ​c​r​e​d​i​t​s​ ​e​a​c​h​ ​y​e​a​r​,​ ​w​h​i​c​h​ ​c​a​n​ ​s​a​v​e​ ​t​h​e​ ​a​v​e​r​a​g​e​ ​f​a​m​i​l​y​ ​b​e​t​w​e​e​n​ ​$​5​K​-​2​0​K​.​ ​A​l​l​ ​y​o​u​ ​h​a​v​e​ ​t​o​ ​d​o​ ​t​o​ ​c​l​a​i​m​ ​t​h​e​s​e​ ​f​u​n​d​s​ ​i​s​ ​f​i​l​e​ ​y​o​u​r​ ​t​a​x​e​s​!​ ​A​n​s​w​e​r​ ​j​u​s​t​ ​a​ ​f​e​w​ ​q​u​e​s​t​i​o​n​s​ ​u​s​i​n​g​ ​t​h​e​ ​c​a​l​c​u​l​a​t​o​r​ ​b​e​l​o​w​ ​t​o​ ​f​i​n​d​ ​o​u​t​ ​h​o​w​ ​t​h​e​s​e​ ​t​a​x​ ​c​r​e​d​i​t​s​ ​c​o​u​l​d​ ​b​e​n​e​f​i​t​ ​y​o​u​,​ ​a​n​d​ ​t​h​e​n​ ​f​i​l​e​ ​y​o​u​r​ ​t​a​x​e​s​ ​u​s​i​n​g​ ​o​n​e​ ​o​f​ ​t​h​e​ ​s​e​r​v​i​c​e​s​ ​l​i​s​t​e​d​ ​b​e​l​o​w​.
+		 */
 		DESCRIPTION: string
 	}
 	FORM: {
@@ -33,7 +36,7 @@ type RootTranslation = {
 				 */
 				QUESTION: string
 				/**
-				 * M​a​r​r​i​e​d
+				 * W​i​t​h​ ​a​ ​S​p​o​u​s​e
 				 */
 				MARRIED: string
 				/**
@@ -295,6 +298,9 @@ export type TranslationFunctions = {
 		 * TAX CREDIT CALCULATOR
 		 */
 		TITLE: () => LocalizedString
+		/**
+		 * Most Colorado residents are eligible for several local and federal tax credits each year, which can save the average family between $5K-20K. All you have to do to claim these funds is file your taxes! Answer just a few questions using the calculator below to find out how these tax credits could benefit you, and then file your taxes using one of the services listed below.
+		 */
 		DESCRIPTION: () => LocalizedString
 	}
 	FORM: {
@@ -309,7 +315,7 @@ export type TranslationFunctions = {
 				 */
 				QUESTION: () => LocalizedString
 				/**
-				 * Married
+				 * With a Spouse
 				 */
 				MARRIED: () => LocalizedString
 				/**
