@@ -85,6 +85,7 @@
 
 	main {
 		max-width: 80em;
+		padding-bottom: 1rem;
 		margin: auto;
 	}
 </style>

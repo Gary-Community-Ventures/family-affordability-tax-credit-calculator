@@ -35,8 +35,8 @@
 
 <div class="container" bind:this={container}>
 	<h2 class="benefits-header">
-		<div class="primary-heading">{$t.RESULTS.TITLE_START()}</div>
-		<div class="primary-heading">{$t.RESULTS.TITLE_END(formatNumber(total))}</div>
+		<div class="primary-heading results-heading">{$t.RESULTS.TITLE_START()}</div>
+		<div class="primary-heading results-heading">{$t.RESULTS.TITLE_END(formatNumber(total))}</div>
 	</h2>
 
 	{#if eligbleCredits.length > 0}
@@ -111,7 +111,10 @@
 		flex-direction: column;
 		width: fit-content;
 		margin: 0;
-		padding: 1rem 0;
+	}
+
+	.results-heading {
+		text-align: start;
 	}
 
 	.section {
@@ -154,6 +157,8 @@
 	}
 
 	.disclaimer {
+		padding: 1rem 0;
+		margin: 0;
 		font-size: 0.9em;
 		font-style: italic;
 	}
@@ -166,7 +171,7 @@
 		.container {
 			padding: 1rem;
 			display: grid;
-			grid-template-rows: 2fr 6fr 2fr;
+			grid-template-rows: 2fr 6fr 1fr;
 			grid-template-columns: 5fr 5fr;
 		}
 
@@ -190,7 +195,6 @@
 		.links {
 			grid-row: 2 / span 1;
 			grid-column: 1 / span 1;
-			justify-content: end;
 			padding-bottom: 0;
 		}
 
