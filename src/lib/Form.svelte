@@ -82,7 +82,7 @@
 
 <form on:submit|preventDefault={onSubmit}>
 	<h2 class="secondary-heading">{$t.FORM.TITLE()}</h2>
-	<div class="colored-section question-container">
+	<div class="question-container">
 		<YesNo
 			bind:value={isMarried}
 			label={$t.FORM.QUESTIONS.MARRIED.QUESTION()}
