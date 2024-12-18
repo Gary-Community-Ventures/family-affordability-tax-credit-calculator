@@ -1,14 +1,10 @@
 <script lang="ts">
 	import type { TaxCredit } from './mfbApi';
-	import PopUp from './PopUp.svelte';
 	import t from '$lib/i18n/i18n-svelte';
-	import SignUpForm from './SignUpForm.svelte';
 	import { PUBLIC_MFB_FRONTEND_DOMAIN } from '$env/static/public';
 	import { onMount } from 'svelte';
 
 	export let taxCredits: TaxCredit[];
-	export let uuid: string;
-	export let id: string;
 	export let lang: string = 'en';
 
 	let formattedLang = lang;
@@ -16,8 +12,6 @@
 
 	let total = 0;
 	$: total = taxCredits.reduce((acc, credit) => acc + credit.value, 0);
-
-	let dialogOpen = false;
 
 	const formatNumber = new Intl.NumberFormat('en-US', {
 		style: 'currency',
@@ -39,85 +33,70 @@
 	});
 </script>
 
-<h2 class="benefits-header">
-	<div class="primary-heading">FILE 2024 TAXES &#38; RECEIVE</div>
-	<div class="primary-heading">{formatNumber(total)} IN TAX CREDITS</div>
-</h2>
-
 <div class="container" bind:this={container}>
-	<div class="results-lists">
-		{#if eligbleCredits.length > 0}
-			<div class="section">
-				<h3 class="secondary-heading">{eligbleCredits.length} Tax Credits Found:</h3>
+	<h2 class="benefits-header">
+		<div class="primary-heading">{$t.RESULTS.TITLE_START()}</div>
+		<div class="primary-heading">{$t.RESULTS.TITLE_END(formatNumber(total))}</div>
+	</h2>
+
+	{#if eligbleCredits.length > 0}
+		<div class="results-lists">
+			<div class="section tax-values">
+				<h3 class="secondary-heading">{$t.RESULTS.CREDITS_FOUND_TITLE(eligbleCredits.length)}</h3>
 				<ul>
 					{#each eligbleCredits as credit}
-						<li>{$t.RESULTS.CREDIT_NAMES[credit.id]()}: {formatNumber(credit.value)}</li>
+						<li>{$t.RESULTS.CREDIT_NAMES[credit.id]()} {formatNumber(credit.value)}</li>
 					{/each}
 				</ul>
 			</div>
-		{/if}
 
-		<div class="section">
-			<h3 class="secondary-heading">Required documents</h3>
-			<ul>
-				<li>Social security number</li>
-				<li>1099 for all household members in tax unit</li>
-				<li>Form W-2 for all household members in tax unit</li>
-			</ul>
+			<div class="section">
+				<h3 class="secondary-heading">{$t.RESULTS.REQUIRED_DOCUMENTS.TITLE()}</h3>
+				<ul>
+					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.ID()}</li>
+					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.SSN()}</li>
+					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.BIRTH_DATES()}</li>
+					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.W2()}</li>
+					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.BANK_ACCOUNT()}</li>
+					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.PRIOR_TAX_RETURNS()}</li>
+					<li>
+						{$t.RESULTS.REQUIRED_DOCUMENTS.IP_PIN()}
+						<a
+							href="http://irs.gov/identity-theft-fraud-scams/get-an-identity-protection-pin"
+							class="ip-pin-link">{$t.RESULTS.REQUIRED_DOCUMENTS.IP_PIN_LINK_TEXT()}</a
+						>.
+					</li>
+				</ul>
+			</div>
 		</div>
-	</div>
+	{/if}
 
 	<div class="section links">
-		<h3 class="primary-heading ways-to-file">FILE FOR FREE</h3>
+		<h3 class="primary-heading ways-to-file">{$t.RESULTS.FILE_FOR_FREE.TITLE()}</h3>
 		<div class="link-container">
-			<a href="https://google.com" class="primary-button">Something</a>
+			<a href="https://google.com" class="primary-button">{$t.RESULTS.FILE_FOR_FREE.ONLINE()}</a>
 		</div>
 		<div class="link-container">
-			<a href="https://google.com" class="primary-button">Something else</a>
+			<a href="https://google.com" class="primary-button">{$t.RESULTS.FILE_FOR_FREE.IN_PERSON()}</a>
 		</div>
-		<h3 class="primary-heading other-filing-options ways-to-file">OTHER FILING OPTIONS</h3>
+		<h3 class="primary-heading other-filing-options ways-to-file">{$t.RESULTS.OTHER_FILING_OPTIONS.TITLE()}</h3>
 		<div class="link-container">
-			<button class="primary-button" on:click={() => (dialogOpen = !dialogOpen)}
-				>Remind me to file</button
-			>
-		</div>
-		<div class="link-container">
-			<a href="https://google.com" class="primary-button">Paid filing options</a>
+			<a href="https://google.com" class="primary-button">{$t.RESULTS.OTHER_FILING_OPTIONS.PAID()}</a>
 		</div>
 	</div>
 
-	<p class="disclaimer">
-		*this is like a super long disclaimer Lorem ipsum dolor sit amet consectetur adipisicing elit.
-		Nam at ex libero accusantium, enim magni expedita. Autem, veniam voluptatum magnam ipsam
-		reprehenderit dolorum ducimus corporis rerum animi magni corrupti id?Lorem ipsum, dolor sit amet
-		consectetur adipisicing elit. Voluptatibus, quos quaerat? Voluptatibus reiciendis, eaque odit
-		temporibus sunt perferendis, maiores perspiciatis doloribus voluptatem quos ratione dolor
-		ducimus ab laudantium, totam in!
-	</p>
+	<p class="disclaimer">* {$t.RESULTS.DISCLAIMER()}</p>
 </div>
 
-<h2 class="primary-heading">MFB</h2>
-<p class="mfb-description">
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ea facilis doloribus
-	consequuntur at nostrum quidem quod illo, voluptatum esse suscipit ipsa blanditiis. Et aperiam
-	optio eos quam ut qui?
-</p>
+<h2 class="primary-heading">{$t.RESULTS.MFB.TITLE()}</h2>
+<p class="mfb-description">{$t.RESULTS.MFB.DESCRIPTION()}</p>
 <div class="mfb-link-container">
-	<a href={`${PUBLIC_MFB_FRONTEND_DOMAIN}/${formattedLang}/${uuid}/step-1/`} class="primary-button"
-		>MyFriendBen</a
-	>
+	<a href={`${PUBLIC_MFB_FRONTEND_DOMAIN}/co/step-1/`} class="primary-button">{$t.RESULTS.MFB.BUTTON()}</a>
 </div>
-
-<PopUp bind:open={dialogOpen}>
-	<SignUpForm {uuid} {id} {lang} on:done={() => (dialogOpen = false)} />
-</PopUp>
 
 <style>
 	.container {
 		padding: 1rem;
-		display: grid;
-		grid-template-rows: 0.2fr 0.6fr 0.2fr;
-		grid-template-columns: 1fr;
 	}
 
 	h2.benefits-header {
@@ -126,11 +105,15 @@
 		flex-direction: column;
 		width: fit-content;
 		margin: 0;
-		padding: 1rem
+		padding: 1rem;
 	}
 
 	.section {
 		padding: 1.5em 0;
+	}
+
+	div.tax-values {
+		padding-bottom: 1rem;
 	}
 
 	.links {
@@ -143,6 +126,14 @@
 		margin: 0;
 		font-size: 1.3em;
 		padding: 0 1em;
+	}
+
+	li {
+		padding: 0.2em 0;
+	}
+
+	.ip-pin-link {
+		color: var(--primary-color);
 	}
 
 	.link-container,
@@ -166,30 +157,33 @@
 	}
 
 	@media (min-width: 68rem) {
-		h2.benefits-header {
-			flex-direction: row;
-			gap: 0;
-		}
 		.container {
 			padding: 1rem;
 			display: grid;
-			grid-template-rows: 6fr 2fr;
+			grid-template-rows: 2fr 6fr 2fr;
 			grid-template-columns: 5fr 5fr;
 		}
 
+		h2.benefits-header {
+			grid-row: 1 / span 1;
+			grid-column: 1 span 1;
+		}
+
 		.disclaimer {
-			grid-row: 2 / span 1;
+			grid-row: 3 / span 1;
 			grid-column: 1 / span 2;
 		}
 
 		.results-lists {
-			grid-row: 1 / span 1;
+			grid-row: 1 / span 2;
 			grid-column: 2 / span 1;
 			border: 2px solid var(--primary-color);
 			padding: 1em;
 		}
 
 		.links {
+			grid-row: 2 / span 1;
+			grid-column: 1 / span 1;
 			justify-content: end;
 			padding-bottom: 0;
 		}

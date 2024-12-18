@@ -1,4 +1,5 @@
 <script lang="ts">
+	import t from '$lib/i18n/i18n-svelte';
 	import type { IncomeType } from './mfbApi';
 	export let income: IncomeType = {
 		frequency: '',
@@ -23,48 +24,52 @@
 
 <div>
 	<div>
-		<p class="subquestion">How often are you paid this income?</p>
+		<p class="subquestion">{$t.FORM.QUESTIONS.INCOME.FREQUENCY.QUESTION()}</p>
 		<span class="input-container">
 			<Select
 				bind:value={income.frequency}
 				id={`${id}-income-frequency`}
-				label="Frequency"
+				label={$t.FORM.QUESTIONS.INCOME.FREQUENCY.LABEL()}
 				errorMessage={newErrorMessage(submitted).condition(
 					income.frequency === '',
-					'This field is required'
+					$t.FORM.QUESTIONS.INCOME.ERROR()
 				).message}
 			>
-				<option value="weekly">Weekly</option>
-				<option value="biweekly">2 Weeks</option>
-				<option value="semimonthly">Twice a Month</option>
-				<option value="monthly">monthly</option>
-				<option value="hourly">Hourly</option>
+				<option value="weekly">{$t.FORM.QUESTIONS.INCOME.FREQUENCY.OPTIONS.WEEKLY()}</option>
+				<option value="biweekly">{$t.FORM.QUESTIONS.INCOME.FREQUENCY.OPTIONS.BIWEEKLY()}</option>
+				<option value="semimonthly"
+					>{$t.FORM.QUESTIONS.INCOME.FREQUENCY.OPTIONS.SEMIMONTHLY()}</option
+				>
+				<option value="monthly">{$t.FORM.QUESTIONS.INCOME.FREQUENCY.OPTIONS.MONTHLY()}</option>
+				<option value="hourly">{$t.FORM.QUESTIONS.INCOME.FREQUENCY.OPTIONS.HOURLY()}</option>
 			</Select>
-			<AddButton on:click={handleRemove} icon="&#x2212;">Remove Income</AddButton>
+			<AddButton on:click={handleRemove} icon="&#x2212;"
+				>{$t.FORM.QUESTIONS.INCOME.REMOVE_INCOME()}</AddButton
+			>
 		</span>
 	</div>
 	<div>
-		<p class="subquestion">How much do you make</p>
+		<p class="subquestion">{$t.FORM.QUESTIONS.INCOME.AMOUNT.QUESTION()}</p>
 		<Input
 			bind:value={income.amount}
 			id={`${id}-income-amount`}
-			label="Amount"
+			label={$t.FORM.QUESTIONS.INCOME.AMOUNT.LABEL()}
 			errorMessage={newErrorMessage(submitted).condition(
 				income.amount === null,
-				'This field is required'
+				$t.FORM.QUESTIONS.INCOME.ERROR()
 			).message}
 		/>
 	</div>
 	{#if income.frequency === 'hourly'}
 		<div>
-			<p class="subquestion">How many hours do you work?</p>
+			<p class="subquestion">{$t.FORM.QUESTIONS.INCOME.HOURS.QUESTION()}</p>
 			<Input
 				bind:value={income.hours}
 				id={`${id}-income-hours-per-week`}
-				label="Hours"
+				label={$t.FORM.QUESTIONS.INCOME.HOURS.LABEL()}
 				errorMessage={newErrorMessage(submitted).condition(
 					income.hours === null,
-					'This field is required'
+					$t.FORM.QUESTIONS.INCOME.ERROR()
 				).message}
 			/>
 		</div>

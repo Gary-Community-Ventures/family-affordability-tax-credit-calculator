@@ -25,7 +25,7 @@
 <Form {handleSubmit} />
 
 {#if mfbApi.uuid !== null && mfbApi.id !== null && taxCredits.length !== 0}
-	<Results {taxCredits} uuid={mfbApi.uuid} id={mfbApi.id} lang={$page.params.lang} />
+	<Results {taxCredits} lang={$page.params.lang} />
 {/if}
 
 <style>

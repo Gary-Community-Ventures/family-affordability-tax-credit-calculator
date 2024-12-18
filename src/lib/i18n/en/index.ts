@@ -6,69 +6,102 @@ const en = {
 		DESCRIPTION: ''
 	},
 	FORM: {
-		TITLE: '',
+		TITLE: 'Tell Us About Your Household',
 		QUESTIONS: {
 			MARRIED: {
-				QUESTION: ''
+				QUESTION: 'Do you file taxes as single or jointly with a spouse?',
+				MARRIED: 'Married',
+				SINGLE: 'Single'
 			},
 			CHILDREN: {
-				QUESTION: '',
-				AGEqUESTION: '',
-				ADDcHILD: ''
+				ZERO_TO_4: {
+					QUESTION: 'How many children under age 5 do you have?',
+					LABEL: 'Number of children'
+				},
+				FIVE_TO_16: {
+					QUESTION: 'How many children between the ages of 6 and 16 do you have?',
+					LABEL: 'Number of children'
+				},
+				ERROR: 'The max household size is 8'
 			},
 			INCOME: {
-				QUESTION: '',
-				QUESTION_WITH_SPOUSE: '',
-				HELP_TEXT: '',
-				FREQUENCY_QUESTION: '',
-				AMOUNT_QUESTION: '',
-				HOURS_WORKED_QUESTION: '',
-				ADD_INCOME: ''
+				QUESTION_WITH_SPOUSE: 'Do you or your spouse have an income?',
+				QUESTION: 'Do you have an income?',
+				FREQUENCY: {
+					QUESTION: 'How often are you paid this income?',
+					LABEL: 'Frequency',
+					HELP_TEXT:
+						'"Every 2 weeks" means you get paid every other week. "Twice a month" means you get paid two times a month on the same dates each month.',
+					OPTIONS: {
+						WEEKLY: 'Weekly',
+						BIWEEKLY: '2 Weeks',
+						SEMIMONTHLY: 'Twice a Month',
+						MONTHLY: 'monthly',
+						HOURLY: 'Hourly'
+					}
+				},
+				AMOUNT: {
+					QUESTION: 'How much do you receive before taxes each pay period. for this income?',
+					LABEL: 'Amount'
+				},
+				HOURS: {
+					QUESTION: 'What is your hourly rate?',
+					LABEL: 'Hours'
+				},
+				ERROR: 'This field is required',
+				REMOVE_INCOME: 'Remove Income',
+				ADD_INCOME: 'ADD ANOTHER INCOME'
 			}
 		},
 		YES_OR_NO_INPUT: {
-			YES: '',
-			NO: ''
+			YES: 'Yes',
+			NO: 'No'
 		},
-		SUBMIT: ''
+		SUBMIT: 'CALCULATE MY TAX CREDITS',
+		LOADING: 'LOADING',
+		ERROR: 'Something went wrong'
 	},
 	RESULTS: {
-		TITLE: '',
-		CREDITS_FOUND_TITLE: '',
+		TITLE_START: 'FILE 2024 TAXES & RECEIVE',
+		TITLE_END: '{0:string} IN TAX CREDITS',
+		CREDITS_FOUND_TITLE: '{0:number} Tax Credits Found:',
 		CREDIT_NAMES: {
-			eitc: 'Earned Income Tax Credit',
-			coeitc: 'Colorado Earned Income Tax Credit',
-			ctc: 'Child Tax Credit',
-			coctc: 'Colorado Child Tax Credit',
-			fatc: 'Colorado Family Affordability Tax Credit'
+			eitc: 'Earned Income Tax Credit:',
+			coeitc: 'Colorado Earned Income Tax Credit:',
+			ctc: 'Child Tax Credit:',
+			coctc: 'Colorado Child Tax Credit:',
+			fatc: 'Colorado Family Affordability Tax Credit:'
 		},
 		REQUIRED_DOCUMENTS: {
-			SOCIAL_SECURITY_NUMBER: '',
-			TEN_NINTY_NINE: '',
-			W2: ''
+			TITLE: 'Required Documents to File Taxes:',
+			ID: 'Photo ID (driver’s license, state ID, or passport).',
+			SSN: 'Social Security (SSN) card or Individual Taxpayer Identification Number (ITIN) letter for yourself and each person listed on the tax return.',
+			BIRTH_DATES:
+				"Birth dates for everyone on the tax return. You may need your children's birth certificates if you are claiming the Child Tax Credit (CTC).",
+			W2: 'W2s, 1099s, and other tax-related documents.',
+			BANK_ACCOUNT:
+				'A checking/savings account and routing number to receive your refund by direct deposit, or your mailing address to have a check mailed to you.',
+			PRIOR_TAX_RETURNS: 'Prior year tax returns, if you have them.',
+			IP_PIN: 'Identity Protection PIN (IP PIN), if you have one. Learn more about an IP PIN',
+			IP_PIN_LINK_TEXT: 'here'
 		},
-		BUTTONS: {
-			FILE_ONLINE: '',
-			FILE_IN_PERSON: '',
-			REMIND_ME: ''
+		FILE_FOR_FREE: {
+			TITLE: 'FILE FOR FREE',
+			ONLINE: 'FILE ONLINE',
+			IN_PERSON: 'FILE IN-PERSON'
 		},
-		DISCLAIMER: '',
-		OTHER_BENEFITS: {
-			TITLE: '',
-			DESCRIPTION: '',
-			BUTTON: ''
+		OTHER_FILING_OPTIONS: {
+			TITLE: 'OTHER FILING OPTIONS',
+			PAID: 'PAID FILING OPTIONS'
+		},
+		DISCLAIMER:
+			'Based on the income information you provided, this is the total amount of credits you will be eligible for. The final refund you receive will be based on this number minus any liabilities you may owe. Filers who receive all or most of their income from a W-2 earning job will likely receive nearly all of the value of these credits in a refund.',
+		MFB: {
+			TITLE: 'OTHER BENEFITS',
+			DESCRIPTION:
+				'To see what other benefits you may be eligible, click the button below to visit MyFriendBen.',
+			BUTTON: 'MEET MYFRIENDBEN'
 		}
-	},
-	CONTACT_INFO: {
-		TITLE: '',
-		INPUTS: {
-			FIRST_NAME: '',
-			LAST_NAME: '',
-			EMAIL: '',
-			PNONE: ''
-		},
-		TOS: '',
-		SUBMIT: ''
 	}
 } satisfies BaseTranslation;
 

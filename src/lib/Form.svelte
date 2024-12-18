@@ -1,11 +1,11 @@
 <script lang="ts">
+	import t from '$lib/i18n/i18n-svelte';
 	import Income from './Income.svelte';
 	import type { IncomeType } from './mfbApi';
 	import YesNo from './YesNo.svelte';
 	import Input from './Input.svelte';
 	import AddButton from './AddButton.svelte';
 	import newErrorMessage from './handleError';
-	import { linear } from 'svelte/easing';
 
 	export let handleSubmit: (
 		isMarried: boolean,
@@ -13,40 +13,21 @@
 		incomes: IncomeType[]
 	) => void | Promise<void>;
 
-	const MAX_CHILD_AMOUNT = 6;
+	const MAX_HOUSEHOLD_SIZE = 8;
 
 	let loading = false;
 	let hasError = false;
 
 	let isMarried = false;
-	let hasChildren = false;
 	let hasIncome = false;
-	let childAges: (number | null)[] = [];
+
+	let zeroTo4: number | null = 0;
+	let fiveTo16: number | null = 0;
+
+	let householdSize = 0;
+	$: householdSize = (zeroTo4 ?? 0) + (fiveTo16 ?? 0) + (isMarried ? 1 : 0) + 1;
 
 	let submitted = false;
-
-	$: {
-		if (hasChildren && childAges.length === 0) {
-			addChild();
-		} else if (!hasChildren) {
-			childAges = [];
-		}
-	}
-
-	function addChild() {
-		if (childAges.length >= MAX_CHILD_AMOUNT) {
-			return;
-		}
-		childAges = [...childAges, null];
-	}
-
-	function removeChild(index: number) {
-		childAges = childAges.filter((_, i) => index !== i);
-
-		if (childAges.length === 0) {
-			hasChildren = false;
-		}
-	}
 
 	let incomes: IncomeType[] = [];
 
@@ -74,7 +55,7 @@
 		submitted = true;
 		if (
 			loading ||
-			childAges.some((age) => age === null) ||
+			householdSize > MAX_HOUSEHOLD_SIZE ||
 			incomes.some(
 				(income) =>
 					income.frequency === '' ||
@@ -87,6 +68,8 @@
 
 		loading = true;
 		hasError = false;
+
+		const childAges = [...Array(zeroTo4 ?? 0).fill(4), ...Array(fiveTo16 ?? 0).fill(10)];
 		try {
 			await handleSubmit(isMarried, childAges as number[], incomes);
 		} catch (error) {
@@ -98,39 +81,48 @@
 </script>
 
 <form on:submit|preventDefault={onSubmit}>
-	<h2 class="secondary-heading">Tell us about your household</h2>
+	<h2 class="secondary-heading">{$t.FORM.TITLE()}</h2>
 	<div class="colored-section question-container">
-		<YesNo bind:value={isMarried} label="Married" id="married" />
+		<YesNo
+			bind:value={isMarried}
+			label={$t.FORM.QUESTIONS.MARRIED.QUESTION()}
+			id="married"
+			yesText={$t.FORM.QUESTIONS.MARRIED.MARRIED()}
+			noText={$t.FORM.QUESTIONS.MARRIED.SINGLE()}
+		/>
+	</div>
+	<div class="question-container colored-section">
+		<p class="question">{$t.FORM.QUESTIONS.CHILDREN.ZERO_TO_4.QUESTION()}</p>
+		<Input
+			label={$t.FORM.QUESTIONS.CHILDREN.ZERO_TO_4.LABEL()}
+			bind:value={zeroTo4}
+			id="zero-four"
+			errorMessage={newErrorMessage(submitted).condition(
+				householdSize > MAX_HOUSEHOLD_SIZE,
+				$t.FORM.QUESTIONS.CHILDREN.ERROR()
+			).message}
+		/>
 	</div>
 	<div class="question-container">
-		<YesNo bind:value={hasChildren} label="Has Children" id="has-children" />
-		{#if hasChildren}
-			{#each childAges as item, i (i)}
-				<div>
-					<p class="subquestion">How old is child {i + 1}?</p>
-					<span class="input-container">
-						<Input
-							id={`child-${i}-age`}
-							label="Age"
-							bind:value={item}
-							errorMessage={newErrorMessage(submitted).condition(
-								item === null,
-								'this field is required'
-							).message}
-						/>
-						<AddButton on:click={() => removeChild(i)} icon="&#x2212;">Remove Child</AddButton>
-					</span>
-				</div>
-			{/each}
-			<div class="add-button-container">
-				{#if childAges.length < MAX_CHILD_AMOUNT}
-					<AddButton on:click={addChild}>Add Child</AddButton>
-				{/if}
-			</div>
-		{/if}
+		<p class="question">{$t.FORM.QUESTIONS.CHILDREN.FIVE_TO_16.QUESTION()}</p>
+		<Input
+			label={$t.FORM.QUESTIONS.CHILDREN.FIVE_TO_16.LABEL()}
+			bind:value={fiveTo16}
+			id="zero-four"
+			errorMessage={newErrorMessage(submitted).condition(
+				householdSize > MAX_HOUSEHOLD_SIZE,
+				$t.FORM.QUESTIONS.CHILDREN.ERROR()
+			).message}
+		/>
 	</div>
 	<div class="colored-section question-container">
-		<YesNo bind:value={hasIncome} label="Has Income" id="has-income" />
+		<YesNo
+			bind:value={hasIncome}
+			label={isMarried
+				? $t.FORM.QUESTIONS.INCOME.QUESTION_WITH_SPOUSE()
+				: $t.FORM.QUESTIONS.INCOME.QUESTION()}
+			id="has-income"
+		/>
 		{#if hasIncome}
 			{#each incomes as item, i (i)}
 				<div>
@@ -141,24 +133,22 @@
 				{/if}
 			{/each}
 			<div class="add-button-container">
-				{#if childAges.length < MAX_CHILD_AMOUNT}
-					<AddButton on:click={addIncome}>Add Income</AddButton>
-				{/if}
+				<AddButton on:click={addIncome}>{$t.FORM.QUESTIONS.INCOME.ADD_INCOME()}</AddButton>
 			</div>
 		{/if}
 	</div>
 	<div class="button-container">
 		<button type="submit" disabled={loading} class="primary-button">
 			{#if !loading}
-				CALCULATE MY TAX CREDITS
+				{$t.FORM.SUBMIT()}
 			{:else}
-				LOADING
+				{$t.FORM.LOADING()}
 			{/if}
 		</button>
 	</div>
 	{#if hasError}
 		<div>
-			<strong class="error-message">Something went wrong</strong>
+			<strong class="error-message">{$t.FORM.ERROR()}</strong>
 		</div>
 	{/if}
 </form>
@@ -174,12 +164,6 @@
 
 	.question-container {
 		padding: 1em 0;
-	}
-
-	.subquestion {
-		font-size: 1.3em;
-		margin: 0;
-		padding: 1em 0 0.6em 0;
 	}
 
 	.add-button-container {
@@ -202,5 +186,11 @@
 		width: 90%;
 		max-width: 30em;
 		margin: 1.5em 0 0 1em;
+	}
+
+	.question {
+		margin: 0;
+		padding: 0.5em 0;
+		font-size: 1.3em;
 	}
 </style>
