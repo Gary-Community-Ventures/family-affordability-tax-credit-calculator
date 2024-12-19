@@ -79,17 +79,24 @@
 	<div class="section links">
 		<h3 class="primary-heading ways-to-file">{$t.RESULTS.FILE_FOR_FREE.TITLE()}</h3>
 		<div class="link-container">
-			<a href="https://google.com" class="primary-button">{$t.RESULTS.FILE_FOR_FREE.ONLINE()}</a>
+			<a
+				href="https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=get_ahead&utm_term=english&utm_content=myfreetaxes"
+				class="primary-button">{$t.RESULTS.FILE_FOR_FREE.ONLINE()}</a
+			>
 		</div>
 		<div class="link-container">
-			<a href="https://google.com" class="primary-button">{$t.RESULTS.FILE_FOR_FREE.IN_PERSON()}</a>
+			<a
+				href="https://taxhelpco.org/get-free-tax-help/find-a-free-tax-site/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=get_ahead&utm_term=english&utm_content=taxhelpcolorado_vita"
+				class="primary-button">{$t.RESULTS.FILE_FOR_FREE.IN_PERSON()}</a
+			>
 		</div>
 		<h3 class="primary-heading other-filing-options ways-to-file">
 			{$t.RESULTS.OTHER_FILING_OPTIONS.TITLE()}
 		</h3>
 		<div class="link-container">
-			<a href="https://google.com" class="primary-button"
-				>{$t.RESULTS.OTHER_FILING_OPTIONS.PAID()}</a
+			<a
+				href="https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calcu[…]ions&utm_id=get_ahead&utm_term=english&utm_content=mfb_page"
+				class="primary-button">{$t.RESULTS.OTHER_FILING_OPTIONS.PAID()}</a
 			>
 		</div>
 	</div>
