@@ -2,73 +2,108 @@ import type { Translation } from '../i18n-types';
 
 const es = {
 	MAIN: {
-		TITLE: 'TAX CREDIT CALCULATOR',
-		DESCRIPTION: ''
+		TITLE: 'CALCULADORA DE CREDITO FISCAL',
+		DESCRIPTION:
+			'La mayoría de los residentes de Colorado son elegibles para varios créditos fiscales locales y federales cada año, lo que puede ahorrarle a una familia promedio entre $5,000 y $20,000. ¡Todo lo que tienes que hacer para reclamar estos fondos es presentar tus impuestos! Responda algunas preguntas usando la calculadora a continuación para descubrir cómo estos créditos fiscales podrían beneficiarlo y luego presente sus impuestos utilizando uno de los servicios que se enumeran a continuación.'
 	},
 	FORM: {
-		TITLE: '',
+		TITLE: 'Cuéntenos sobre su hogar',
 		QUESTIONS: {
 			MARRIED: {
-				QUESTION: ''
+				QUESTION: '¿Declara impuestos como soltero o conjuntamente con su cónyuge?',
+				MARRIED: 'Con un cónyuge',
+				SINGLE: 'Soltero'
 			},
 			CHILDREN: {
-				QUESTION: '',
-				AGEqUESTION: '',
-				ADDcHILD: ''
+				ZERO_TO_4: {
+					QUESTION: '¿Cuántos hijos menores de 5 años tiene?',
+					LABEL: 'Número de niños'
+				},
+				FIVE_TO_16: {
+					QUESTION: '¿Cuántos hijos entre 6 y 16 años tienes?',
+					LABEL: 'Número de niños'
+				},
+				ERROR: 'El tamaño máximo del hogar es 8'
 			},
 			INCOME: {
-				QUESTION: '',
-				QUESTION_WITH_SPOUSE: '',
-				HELP_TEXT: '',
-				FREQUENCY_QUESTION: '',
-				AMOUNT_QUESTION: '',
-				HOURS_WORKED_QUESTION: '',
-				ADD_INCOME: ''
+				QUESTION_WITH_SPOUSE: '¿Tiene usted o su cónyuge ingresos?',
+				QUESTION: '¿Tienes ingresos?',
+				FREQUENCY: {
+					QUESTION: '¿Con qué frecuencia recibe estos ingresos?',
+					LABEL: 'Frecuencia',
+					HELP_TEXT:
+						'"Cada 2 semanas" significa que le pagan cada dos semanas. "Dos veces al mes" significa que le pagan dos veces al mes en las mismas fechas cada mes.',
+					OPTIONS: {
+						WEEKLY: 'Semanalmente',
+						BIWEEKLY: '2 semanas',
+						SEMIMONTHLY: 'Dos veces al mes',
+						MONTHLY: 'Mensual',
+						HOURLY: 'Cada hora'
+					}
+				},
+				AMOUNT: {
+					QUESTION: '¿Cuánto recibe antes de impuestos en cada período de pago por este ingreso?',
+					LABEL: 'Cantidad'
+				},
+				HOURS: {
+					QUESTION: '¿Cuál es su tarifa por hora?',
+					LABEL: 'Horas'
+				},
+				ERROR: 'Este campo es obligatorio',
+				REMOVE_INCOME: 'Eliminar ingresos',
+				ADD_INCOME: 'AÑADIR OTRO INGRESO'
 			}
 		},
 		YES_OR_NO_INPUT: {
-			YES: '',
-			NO: ''
+			YES: 'Sí',
+			NO: 'No'
 		},
-		SUBMIT: ''
+		SUBMIT: 'CALCULAR MIS CRÉDITOS FISCALES',
+		LOADING: 'CARGANDO',
+		ERROR: 'algo salió mal'
 	},
 	RESULTS: {
-		TITLE: '',
-		CREDITS_FOUND_TITLE: '',
+		TITLE_START: 'PRESENTAR IMPUESTOS 2024 Y RECIBA',
+		TITLE_END: '{0:string} EN CRÉDITOS FISCALES',
+		CREDITS_FOUND_TITLE: '{0:number} Créditos fiscales encontrados:',
 		CREDIT_NAMES: {
-			EITC: '',
-			COEITC: '',
-			CTC: '',
-			COCTC: '',
-			FATC: ''
+			eitc: 'Crédito fiscal por ingreso del trabajo:',
+			coeitc: 'Crédito fiscal por ingreso del trabajo de Colorado:',
+			ctc: 'Crédito fiscal por hijos:',
+			coctc: 'Crédito fiscal por hijos de Colorado:',
+			fatc: 'Crédito fiscal por asequibilidad familiar de Colorado:'
 		},
 		REQUIRED_DOCUMENTS: {
-			SOCIAL_SECURITY_NUMBER: '',
-			TEN_NINTY_NINE: '',
-			W2: ''
+			TITLE: 'Documentos requeridos para presentar impuestos:',
+			ID: 'Identificación con fotografía (licencia de conducir, identificación estatal o pasaporte).',
+			SSN: 'Tarjeta de Seguro Social (SSN) o carta de Número de Identificación Individual del Contribuyente (ITIN) para usted y cada persona que figura en la declaración de impuestos.',
+			BIRTH_DATES:
+				'Fechas de nacimiento de todas las personas en la declaración de impuestos. Es posible que necesite los certificados de nacimiento de sus hijos si solicita el Crédito tributario por hijos (CTC).',
+			W2: 'W2, 1099 y otros documentos relacionados con impuestos.',
+			BANK_ACCOUNT:
+				'Una cuenta corriente/de ahorros y un número de ruta para recibir su reembolso mediante depósito directo, o su dirección postal para que le envíen un cheque por correo.',
+			PRIOR_TAX_RETURNS: 'Declaraciones de impuestos del año anterior, si las tiene.',
+			IP_PIN:
+				'PIN de protección de identidad (IP PIN), si tiene uno. Obtenga más información sobre un PIN de IP',
+			IP_PIN_LINK_TEXT: 'aquí'
 		},
-		BUTTONS: {
-			FILE_ONLINE: '',
-			FILE_IN_PERSON: '',
-			REMIND_ME: ''
+		FILE_FOR_FREE: {
+			TITLE: 'PRESENTAR GRATIS',
+			ONLINE: 'PRESENTAR EN LÍNEA',
+			IN_PERSON: 'PRESENTAR EN PERSONA'
 		},
-		DISCLAIMER: '',
-		OTHER_BENEFITS: {
-			TITLE: '',
-			DESCRIPTION: '',
-			BUTTON: ''
+		OTHER_FILING_OPTIONS: {
+			TITLE: 'OTRAS OPCIONES DE PRESENTACIÓN',
+			PAID: 'OPCIONES DE PRESENTACIÓN PAGADAS'
+		},
+		DISCLAIMER:
+			'Según la información de ingresos que proporcionó, esta es la cantidad total de créditos para los que será elegible. El reembolso final que reciba se basará en este número menos cualquier responsabilidad que pueda deber. Los contribuyentes que reciben todos o la mayor parte de sus ingresos de un trabajo con salario W-2 probablemente recibirán casi todo el valor de estos créditos en un reembolso.',
+		MFB: {
+			TITLE: 'OTROS BENEFICIOS',
+			DESCRIPTION:
+				'Para ver qué otros beneficios puede ser elegible, haga clic en el botón a continuación para visitar MyFriendBen.',
+			BUTTON: 'CONOCE A MYFRIENDBEN'
 		}
-	},
-	CONTACT_INFO: {
-		TITLE: '',
-		INPUTS: {
-			FIRST_NAME: '',
-			LAST_NAME: '',
-			EMAIL: '',
-			PNONE: ''
-		},
-		TOS: '',
-		SUBMIT: ''
 	}
 } satisfies Translation;
 

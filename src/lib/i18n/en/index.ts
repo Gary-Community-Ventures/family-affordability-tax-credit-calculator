@@ -4,7 +4,7 @@ const en = {
 	MAIN: {
 		TITLE: 'TAX CREDIT CALCULATOR',
 		DESCRIPTION:
-			'Most Colorado residents are eligible for several local and federal tax credits each year, which can save the average family between $5K-20K. All you have to do to claim these funds is file your taxes! Answer just a few questions using the calculator below to find out how these tax credits could benefit you, and then file your taxes using one of the services listed below.'
+			'Families with children in Colorado now have access to more tax credits than ever before! In 2025, families can expect to receive between $2K to $10k per child in credits when filing their taxes. In less than 60 seconds, you can find out how much you could benefit by answering these simple questions.'
 	},
 	FORM: {
 		TITLE: 'Tell Us About Your Household',
