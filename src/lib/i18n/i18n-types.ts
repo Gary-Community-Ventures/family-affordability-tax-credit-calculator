@@ -191,23 +191,23 @@ type RootTranslation = {
 			/**
 			 * E​a​r​n​e​d​ ​I​n​c​o​m​e​ ​T​a​x​ ​C​r​e​d​i​t​:
 			 */
-			eitc: string
+			co_tax_credit_eitc: string
 			/**
 			 * C​o​l​o​r​a​d​o​ ​E​a​r​n​e​d​ ​I​n​c​o​m​e​ ​T​a​x​ ​C​r​e​d​i​t​:
 			 */
-			coeitc: string
+			co_tax_credit_coeitc: string
 			/**
 			 * C​h​i​l​d​ ​T​a​x​ ​C​r​e​d​i​t​:
 			 */
-			ctc: string
+			co_tax_credit_ctc: string
 			/**
 			 * C​o​l​o​r​a​d​o​ ​C​h​i​l​d​ ​T​a​x​ ​C​r​e​d​i​t​:
 			 */
-			coctc: string
+			co_tax_credit_coctc: string
 			/**
 			 * C​o​l​o​r​a​d​o​ ​F​a​m​i​l​y​ ​A​f​f​o​r​d​a​b​i​l​i​t​y​ ​T​a​x​ ​C​r​e​d​i​t​:
 			 */
-			fatc: string
+			co_tax_credit_fatc: string
 		}
 		REQUIRED_DOCUMENTS: {
 			/**
@@ -468,23 +468,23 @@ export type TranslationFunctions = {
 			/**
 			 * Earned Income Tax Credit:
 			 */
-			eitc: () => LocalizedString
+			co_tax_credit_eitc: () => LocalizedString
 			/**
 			 * Colorado Earned Income Tax Credit:
 			 */
-			coeitc: () => LocalizedString
+			co_tax_credit_coeitc: () => LocalizedString
 			/**
 			 * Child Tax Credit:
 			 */
-			ctc: () => LocalizedString
+			co_tax_credit_ctc: () => LocalizedString
 			/**
 			 * Colorado Child Tax Credit:
 			 */
-			coctc: () => LocalizedString
+			co_tax_credit_coctc: () => LocalizedString
 			/**
 			 * Colorado Family Affordability Tax Credit:
 			 */
-			fatc: () => LocalizedString
+			co_tax_credit_fatc: () => LocalizedString
 		}
 		REQUIRED_DOCUMENTS: {
 			/**

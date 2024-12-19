@@ -95,7 +95,7 @@
 <h2 class="primary-heading">{$t.RESULTS.MFB.TITLE()}</h2>
 <p class="mfb-description">{$t.RESULTS.MFB.DESCRIPTION()}</p>
 <div class="mfb-link-container">
-	<a href={`${PUBLIC_MFB_FRONTEND_DOMAIN}/co/step-1/`} class="primary-button"
+	<a href={`${PUBLIC_MFB_FRONTEND_DOMAIN}/co/step-1?referrer=gac`} class="primary-button"
 		>{$t.RESULTS.MFB.BUTTON()}</a
 	>
 </div>

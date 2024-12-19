@@ -11,7 +11,12 @@ export type TaxCredit = {
 	value: number;
 };
 
-export type TaxCreditId = 'ctc' | 'coctc' | 'eitc' | 'coeitc' | 'fatc';
+export type TaxCreditId =
+	| 'co_tax_credit_ctc'
+	| 'co_tax_credit_coctc'
+	| 'co_tax_credit_eitc'
+	| 'co_tax_credit_coeitc'
+	| 'co_tax_credit_fatc';
 
 export default class MfbApi {
 	// provide a default age,
@@ -24,7 +29,13 @@ export default class MfbApi {
 		Authorization: `TOKEN ${PUBLIC_MFB_API_KEY}`
 	};
 
-	TAX_CREDIT_NAMES: TaxCreditId[] = ['ctc', 'coctc', 'eitc', 'coeitc', 'fatc'];
+	TAX_CREDIT_NAMES: TaxCreditId[] = [
+		'co_tax_credit_ctc',
+		'co_tax_credit_coctc',
+		'co_tax_credit_eitc',
+		'co_tax_credit_coeitc',
+		'co_tax_credit_fatc'
+	];
 
 	uuid: string | null;
 	id: string | null;
@@ -37,7 +48,7 @@ export default class MfbApi {
 		this.childAges = [];
 		this.incomes = [];
 		this.uuid = null;
-		this.id = null
+		this.id = null;
 	}
 
 	updateData(isMarried: boolean, childAges: number[], incomes: IncomeType[]) {
@@ -103,7 +114,7 @@ export default class MfbApi {
 
 		const data: any = {
 			is_test: isTest,
-			white_label: 'co',
+			white_label: 'co_tax_calculator',
 			referrer_code: 'getaheadtaxcalculator',
 			household_size: householdMembers.length,
 			household_members: householdMembers,

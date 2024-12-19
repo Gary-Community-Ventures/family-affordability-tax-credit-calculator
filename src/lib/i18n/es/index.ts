@@ -67,11 +67,11 @@ const es = {
 		TITLE_END: '{0:string} EN CRÉDITOS FISCALES',
 		CREDITS_FOUND_TITLE: '{0:number} Créditos fiscales encontrados:',
 		CREDIT_NAMES: {
-			eitc: 'Crédito fiscal por ingreso del trabajo:',
-			coeitc: 'Crédito fiscal por ingreso del trabajo de Colorado:',
-			ctc: 'Crédito fiscal por hijos:',
-			coctc: 'Crédito fiscal por hijos de Colorado:',
-			fatc: 'Crédito fiscal por asequibilidad familiar de Colorado:'
+			co_tax_credit_eitc: 'Crédito fiscal por ingreso del trabajo:',
+			co_tax_credit_coeitc: 'Crédito fiscal por ingreso del trabajo de Colorado:',
+			co_tax_credit_ctc: 'Crédito fiscal por hijos:',
+			co_tax_credit_coctc: 'Crédito fiscal por hijos de Colorado:',
+			co_tax_credit_fatc: 'Crédito fiscal por asequibilidad familiar de Colorado:'
 		},
 		REQUIRED_DOCUMENTS: {
 			TITLE: 'Documentos requeridos para presentar impuestos:',
