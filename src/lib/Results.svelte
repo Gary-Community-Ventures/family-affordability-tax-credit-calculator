@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TaxCredit } from './mfbApi';
-	import t from '$lib/i18n/i18n-svelte';
+	import t, { locale } from '$lib/i18n/i18n-svelte';
 	import { PUBLIC_MFB_FRONTEND_DOMAIN } from '$env/static/public';
 	import { onMount } from 'svelte';
 
@@ -36,6 +36,11 @@
 <div class="container" bind:this={container}>
 	<h2 class="benefits-header">
 		<div class="primary-heading results-heading">{$t.RESULTS.TITLE_START()}</div>
+		{#if $locale === 'es'}
+			<div class="primary-heading results-heading">
+				{$t.RESULTS.TITLE_MIDDLE(formatNumber(total))}
+			</div>
+		{/if}
 		<div class="primary-heading results-heading">{$t.RESULTS.TITLE_END(formatNumber(total))}</div>
 	</h2>
 
@@ -115,6 +120,7 @@
 
 	.results-heading {
 		text-align: start;
+		width: fit-content;
 	}
 
 	.section {
@@ -127,6 +133,7 @@
 
 	.links {
 		display: flex;
+		justify-content: end;
 		flex-direction: column;
 		gap: 0.5em;
 	}
@@ -167,7 +174,7 @@
 		text-align: center;
 	}
 
-	@media (min-width: 68rem) {
+	@media (min-width: 80rem) {
 		.container {
 			padding: 1rem;
 			display: grid;
@@ -204,6 +211,7 @@
 
 		.ways-to-file {
 			width: fit-content;
+			text-align: start;
 		}
 
 		.other-filing-options {

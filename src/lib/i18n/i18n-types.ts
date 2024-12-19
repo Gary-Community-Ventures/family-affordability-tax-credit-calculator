@@ -2,6 +2,8 @@
 /* eslint-disable */
 import type { BaseTranslation as BaseTranslationType, LocalizedString, RequiredParams } from 'typesafe-i18n'
 
+import type { string="" } from './custom-types'
+
 export type BaseTranslation = BaseTranslationType
 export type BaseLocale = 'en'
 
@@ -178,8 +180,13 @@ type RootTranslation = {
 		 */
 		TITLE_START: string
 		/**
-		 * {​0​}​ ​I​N​ ​T​A​X​ ​C​R​E​D​I​T​S
+		 * {​0​}
 		 * @param {string} 0
+		 */
+		TITLE_MIDDLE: RequiredParams<'0'>
+		/**
+		 * {​0​}​ ​I​N​ ​T​A​X​ ​C​R​E​D​I​T​S
+		 * @param {string=""} 0
 		 */
 		TITLE_END: RequiredParams<'0'>
 		/**
@@ -457,9 +464,13 @@ export type TranslationFunctions = {
 		 */
 		TITLE_START: () => LocalizedString
 		/**
+		 * {0}
+		 */
+		TITLE_MIDDLE: (arg0: string) => LocalizedString
+		/**
 		 * {0} IN TAX CREDITS
 		 */
-		TITLE_END: (arg0: string) => LocalizedString
+		TITLE_END: (arg0: string="") => LocalizedString
 		/**
 		 * {0} Tax Credits Found:
 		 */

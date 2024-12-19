@@ -64,7 +64,8 @@ const en = {
 	},
 	RESULTS: {
 		TITLE_START: 'FILE 2024 TAXES & RECEIVE',
-		TITLE_END: '{0:string} IN TAX CREDITS',
+		TITLE_MIDDLE: '{0:string}',
+		TITLE_END: '{0:string=""} IN TAX CREDITS',
 		CREDITS_FOUND_TITLE: '{0:number} Tax Credits Found:',
 		CREDIT_NAMES: {
 			co_tax_credit_eitc: 'Earned Income Tax Credit:',

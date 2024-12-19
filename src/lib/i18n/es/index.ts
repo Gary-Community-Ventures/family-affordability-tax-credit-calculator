@@ -63,8 +63,9 @@ const es = {
 		ERROR: 'algo salió mal'
 	},
 	RESULTS: {
-		TITLE_START: 'PRESENTAR IMPUESTOS 2024 Y RECIBA',
-		TITLE_END: '{0:string} EN CRÉDITOS FISCALES',
+		TITLE_START: 'PRESENTAR IMPUESTOS 2024',
+		TITLE_MIDDLE: 'Y RECIBA {0:string} EN',
+		TITLE_END: 'CRÉDITOS FISCALES',
 		CREDITS_FOUND_TITLE: '{0:number} Créditos fiscales encontrados:',
 		CREDIT_NAMES: {
 			co_tax_credit_eitc: 'Crédito fiscal por ingreso del trabajo:',
