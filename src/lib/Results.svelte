@@ -81,12 +81,14 @@
 		<div class="link-container">
 			<a
 				href="https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=get_ahead&utm_term=english&utm_content=myfreetaxes"
+				target="_blank"
 				class="primary-button">{$t.RESULTS.FILE_FOR_FREE.ONLINE()}</a
 			>
 		</div>
 		<div class="link-container">
 			<a
 				href="https://taxhelpco.org/get-free-tax-help/find-a-free-tax-site/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=get_ahead&utm_term=english&utm_content=taxhelpcolorado_vita"
+				target="_blank"
 				class="primary-button">{$t.RESULTS.FILE_FOR_FREE.IN_PERSON()}</a
 			>
 		</div>
@@ -96,6 +98,7 @@
 		<div class="link-container">
 			<a
 				href="https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calcu[…]ions&utm_id=get_ahead&utm_term=english&utm_content=mfb_page"
+				target="_blank"
 				class="primary-button">{$t.RESULTS.OTHER_FILING_OPTIONS.PAID()}</a
 			>
 		</div>
@@ -182,51 +185,56 @@
 	}
 
 	@media (min-width: 80rem) {
-		.container {
-			padding: 1rem;
-			display: grid;
-			grid-template-rows: 2fr 6fr 1fr;
-			grid-template-columns: 5fr 5fr;
-		}
-
 		h2.benefits-header {
-			grid-row: 1 / span 1;
-			grid-column: 1 span 1;
+			flex-wrap: nowrap;
+			flex-direction: row;
+			gap: 0;
 		}
-
-		.disclaimer {
-			grid-row: 3 / span 1;
-			grid-column: 1 / span 2;
-		}
-
-		.results-lists {
-			grid-row: 1 / span 2;
-			grid-column: 2 / span 1;
-			border: 2px solid var(--primary-color);
-			padding: 1em;
-		}
-
-		.links {
-			grid-row: 2 / span 1;
-			grid-column: 1 / span 1;
-			padding-bottom: 0;
-		}
-
-		.link-container {
-			justify-content: start;
-		}
-
-		.ways-to-file {
-			width: fit-content;
-			text-align: start;
-		}
-
-		.other-filing-options {
-			margin-top: 1em;
-		}
-
-		.section {
-			padding: 0;
-		}
+		/* .container { */
+		/* 	padding: 1rem; */
+		/* 	display: grid; */
+		/* 	grid-template-rows: 2fr 6fr 1fr; */
+		/* 	grid-template-columns: 5fr 5fr; */
+		/* } */
+		/**/
+		/* h2.benefits-header { */
+		/* 	grid-row: 1 / span 1; */
+		/* 	grid-column: 1 span 1; */
+		/* } */
+		/**/
+		/* .disclaimer { */
+		/* 	grid-row: 3 / span 1; */
+		/* 	grid-column: 1 / span 2; */
+		/* } */
+		/**/
+		/* .results-lists { */
+		/* 	grid-row: 1 / span 2; */
+		/* 	grid-column: 2 / span 1; */
+		/* 	border: 2px solid var(--primary-color); */
+		/* 	padding: 1em; */
+		/* } */
+		/**/
+		/* .links { */
+		/* 	grid-row: 2 / span 1; */
+		/* 	grid-column: 1 / span 1; */
+		/* 	padding-bottom: 0; */
+		/* } */
+		/**/
+		/* .link-container { */
+		/* 	justify-content: start; */
+		/* } */
+		/**/
+		/* .ways-to-file { */
+		/* 	width: fit-content; */
+		/* 	text-align: start; */
+		/* } */
+		/**/
+		/* .other-filing-options { */
+		/* 	margin-top: 1em; */
+		/* } */
+		/**/
+		/* .section { */
+		/* 	padding: 0; */
+		/* } */
 	}
 </style>
