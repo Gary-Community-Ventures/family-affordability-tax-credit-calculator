@@ -4,7 +4,7 @@ const es = {
 	MAIN: {
 		TITLE: 'CALCULADORA DE CREDITO FISCAL',
 		DESCRIPTION:
-			'La mayoría de los residentes de Colorado son elegibles para varios créditos fiscales locales y federales cada año, lo que puede ahorrarle a una familia promedio entre $5,000 y $20,000. ¡Todo lo que tienes que hacer para reclamar estos fondos es presentar tus impuestos! Responda algunas preguntas usando la calculadora a continuación para descubrir cómo estos créditos fiscales podrían beneficiarlo y luego presente sus impuestos utilizando uno de los servicios que se enumeran a continuación.'
+			'¡Las familias con niños en Colorado ahora tienen acceso a más créditos fiscales que nunca! En 2025, las familias pueden esperar recibir entre $2.000 y $10.000 por niño en créditos al presentar sus impuestos. En menos de 60 segundos, podrás descubrir cuánto podrías beneficiarte respondiendo a estas preguntas sencillas.'
 	},
 	FORM: {
 		TITLE: 'Cuéntenos sobre su hogar',
