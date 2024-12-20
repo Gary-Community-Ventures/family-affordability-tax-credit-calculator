@@ -94,7 +94,7 @@ export default class MfbApi {
 		}
 
 		// @ts-ignore TS does not know about the GA
-		gtag.push('event', 'form_submit', { uuid: this.uuid });
+		gtag('event', 'results_shown', { uuid: this.uuid });
 
 		return credits;
 	}
