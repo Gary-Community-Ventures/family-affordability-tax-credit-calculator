@@ -68,9 +68,9 @@ const en = {
 		TITLE_END: '{0:string=""} IN TAX CREDITS',
 		CREDITS_FOUND_TITLE: '{0:number} Tax Credits Found:',
 		CREDIT_NAMES: {
-			co_tax_credit_eitc: 'Earned Income Tax Credit:',
+			co_tax_credit_eitc: 'Federal Earned Income Tax Credit:',
 			co_tax_credit_coeitc: 'Colorado Earned Income Tax Credit:',
-			co_tax_credit_ctc: 'Child Tax Credit:',
+			co_tax_credit_ctc: 'Federal Child Tax Credit:',
 			co_tax_credit_coctc: 'Colorado Child Tax Credit:',
 			co_tax_credit_fatc: 'Colorado Family Affordability Tax Credit:'
 		},

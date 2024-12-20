@@ -55,24 +55,24 @@
 				</ul>
 			</div>
 
-			<div class="section">
-				<h3 class="secondary-heading">{$t.RESULTS.REQUIRED_DOCUMENTS.TITLE()}</h3>
-				<ul>
-					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.ID()}</li>
-					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.SSN()}</li>
-					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.BIRTH_DATES()}</li>
-					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.W2()}</li>
-					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.BANK_ACCOUNT()}</li>
-					<li>{$t.RESULTS.REQUIRED_DOCUMENTS.PRIOR_TAX_RETURNS()}</li>
-					<li>
-						{$t.RESULTS.REQUIRED_DOCUMENTS.IP_PIN()}
-						<a
-							href="http://irs.gov/identity-theft-fraud-scams/get-an-identity-protection-pin"
-							class="ip-pin-link">{$t.RESULTS.REQUIRED_DOCUMENTS.IP_PIN_LINK_TEXT()}</a
-						>.
-					</li>
-				</ul>
-			</div>
+			<!-- <div class="section"> -->
+			<!-- 	<h3 class="secondary-heading">{$t.RESULTS.REQUIRED_DOCUMENTS.TITLE()}</h3> -->
+			<!-- 	<ul> -->
+			<!-- 		<li>{$t.RESULTS.REQUIRED_DOCUMENTS.ID()}</li> -->
+			<!-- 		<li>{$t.RESULTS.REQUIRED_DOCUMENTS.SSN()}</li> -->
+			<!-- 		<li>{$t.RESULTS.REQUIRED_DOCUMENTS.BIRTH_DATES()}</li> -->
+			<!-- 		<li>{$t.RESULTS.REQUIRED_DOCUMENTS.W2()}</li> -->
+			<!-- 		<li>{$t.RESULTS.REQUIRED_DOCUMENTS.BANK_ACCOUNT()}</li> -->
+			<!-- 		<li>{$t.RESULTS.REQUIRED_DOCUMENTS.PRIOR_TAX_RETURNS()}</li> -->
+			<!-- 		<li> -->
+			<!-- 			{$t.RESULTS.REQUIRED_DOCUMENTS.IP_PIN()} -->
+			<!-- 			<a -->
+			<!-- 				href="http://irs.gov/identity-theft-fraud-scams/get-an-identity-protection-pin" -->
+			<!-- 				class="ip-pin-link">{$t.RESULTS.REQUIRED_DOCUMENTS.IP_PIN_LINK_TEXT()}</a -->
+			<!-- 			>. -->
+			<!-- 		</li> -->
+			<!-- 	</ul> -->
+			<!-- </div> -->
 		</div>
 	{/if}
 

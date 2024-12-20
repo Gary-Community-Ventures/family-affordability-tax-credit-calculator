@@ -163,7 +163,7 @@
 	}
 
 	.question-container {
-		padding: 1em 0;
+		padding: 1em;
 	}
 
 	.add-button-container {
