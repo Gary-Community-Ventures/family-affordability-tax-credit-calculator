@@ -93,8 +93,8 @@ export default class MfbApi {
 			}
 		}
 
-		// @ts-ignore TS does not know about the datalayer
-		window.dataLayer.push(['event', 'form_submit', { uuid: this.uuid }]);
+		// @ts-ignore TS does not know about the GA
+		gtag.push('event', 'form_submit', { uuid: this.uuid });
 
 		return credits;
 	}
