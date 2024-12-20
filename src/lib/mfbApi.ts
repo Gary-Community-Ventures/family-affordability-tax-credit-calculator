@@ -94,7 +94,7 @@ export default class MfbApi {
 		}
 
 		// @ts-ignore TS does not know about the datalayer
-		window.datalayer.push('view_results', this.uuid)
+		window.dataLayer.push('view_results', this.uuid)
 
 		return credits;
 	}
