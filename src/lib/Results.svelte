@@ -188,7 +188,10 @@
 		h2.benefits-header {
 			flex-wrap: nowrap;
 			flex-direction: row;
+			justify-content: center;
 			gap: 0;
+			background-color: var(--secondary-color);
+			width: 100%;
 		}
 		/* .container { */
 		/* 	padding: 1rem; */
