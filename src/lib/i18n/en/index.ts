@@ -4,7 +4,7 @@ const en = {
 	MAIN: {
 		TITLE: 'TAX CREDIT CALCULATOR',
 		DESCRIPTION:
-			'Families with children in Colorado now have access to more tax credits than ever before! In 2025, families can expect to receive between $2K to $10k per child in credits when filing their taxes. In less than 60 seconds, you can find out how much you could benefit by answering these simple questions.'
+			'Families with children in Colorado now have access to more tax credits than ever before! In 2025, families may receive between 2k and 10k per child in credits when filing their taxes. In less than 60 seconds, you can find out how much you could benefit by answering these simple questions.'
 	},
 	FORM: {
 		TITLE: 'Tell Us About Your Household',

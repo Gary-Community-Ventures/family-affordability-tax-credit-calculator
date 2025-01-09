@@ -4,7 +4,7 @@ const es = {
 	MAIN: {
 		TITLE: 'CALCULADORA DE CREDITO FISCAL',
 		DESCRIPTION:
-			'¡Las familias con niños en Colorado ahora tienen acceso a más créditos fiscales que nunca! En 2025, las familias pueden esperar recibir entre $2.000 y $10.000 por niño en créditos al presentar sus impuestos. En menos de 60 segundos, podrás descubrir cuánto podrías beneficiarte respondiendo a estas preguntas sencillas.'
+			'¡Las familias con niños en Colorado ahora tienen acceso a más créditos fiscales que nunca! En 2025, las familias pueden recibir entre 2k y 10k por niño en créditos al presentar sus impuestos. En menos de 60 segundos, podrás descubrir cuánto podrías beneficiarte respondiendo estas sencillas preguntas.'
 	},
 	FORM: {
 		TITLE: 'Cuéntenos sobre su hogar',
