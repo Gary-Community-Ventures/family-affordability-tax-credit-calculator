@@ -76,6 +76,8 @@
 		</div>
 	{/if}
 
+	<p class="disclaimer">* {$t.RESULTS.DISCLAIMER()}</p>
+
 	<div class="section links">
 		<h3 class="primary-heading ways-to-file">{$t.RESULTS.FILE_FOR_FREE.TITLE()}</h3>
 		<div class="link-container">
@@ -103,8 +105,6 @@
 			>
 		</div>
 	</div>
-
-	<p class="disclaimer">* {$t.RESULTS.DISCLAIMER()}</p>
 </div>
 
 <h2 class="primary-heading">{$t.RESULTS.MFB.TITLE()}</h2>
