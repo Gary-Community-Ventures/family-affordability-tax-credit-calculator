@@ -1,9 +1,10 @@
 <script lang="ts">
-	import t from '$lib/i18n/i18n-svelte';
+	import t, { locale } from '$lib/i18n/i18n-svelte';
 	import Form from '$lib/Form.svelte';
 	import MfbApi, { type IncomeType, type TaxCredit } from '$lib/mfbApi';
 	import Results from '$lib/Results.svelte';
 	import { page } from '$app/stores';
+	import googleTranslateSelect from '$lib/googleTranslate';
 
 	const mfbApi = new MfbApi();
 
@@ -22,6 +23,8 @@
 	<p>{$t.MAIN.DESCRIPTION()}</p>
 </div>
 
+<div use:googleTranslateSelect={$locale} class="translate-input"></div>
+
 <Form {handleSubmit} />
 
 {#if mfbApi.uuid !== null && mfbApi.id !== null && taxCredits.length !== 0}
@@ -32,5 +35,9 @@
 	.header {
 		padding: 1rem;
 		margin: 0;
+	}
+
+	.translate-input {
+		padding-left: 1rem;
 	}
 </style>
