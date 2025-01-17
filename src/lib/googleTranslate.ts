@@ -4,10 +4,20 @@ export default function googleTranslateSelect(node: HTMLDivElement, lang: Locale
 	const id = 'translate_input_' + crypto.randomUUID();
 	node.id = id;
 
-	// @ts-ignore
-	new google.translate.TranslateElement(
+	const attachGoogleTranslate = () => {
 		// @ts-ignore
-		{ pageLanguage: lang, layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
-		id
-	);
+		new google.translate.TranslateElement(
+			// @ts-ignore
+			{ pageLanguage: lang, layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
+			id
+		);
+	};
+
+	try {
+		attachGoogleTranslate();
+	} catch (error) {
+		document
+			.querySelector('#google-translate-script')
+			?.addEventListener('load', attachGoogleTranslate);
+	}
 }
