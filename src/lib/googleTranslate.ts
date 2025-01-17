@@ -4,10 +4,25 @@ export default function googleTranslateSelect(node: HTMLDivElement, lang: Locale
 	const id = 'translate_input_' + crypto.randomUUID();
 	node.id = id;
 
-	// @ts-ignore
-	new google.translate.TranslateElement(
-		// @ts-ignore
-		{ pageLanguage: lang, layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
-		id
-	);
+	let retries = 0;
+
+	const interval = setInterval(() => {
+		try {
+			// @ts-ignore
+			new google.translate.TranslateElement(
+				// @ts-ignore
+				{ pageLanguage: lang, layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
+				id
+			);
+			console.log(retries);
+			clearInterval(interval);
+		} catch (error) {
+			retries += 1;
+
+			if (retries > 100) {
+				clearInterval(interval);
+				console.error('could not load Google Translate');
+			}
+		}
+	}, 100);
 }
