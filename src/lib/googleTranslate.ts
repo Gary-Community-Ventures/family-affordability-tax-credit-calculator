@@ -14,7 +14,6 @@ export default function googleTranslateSelect(node: HTMLDivElement, lang: Locale
 				{ pageLanguage: lang, layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
 				id
 			);
-			console.log(retries);
 			clearInterval(interval);
 		} catch (error) {
 			retries += 1;
