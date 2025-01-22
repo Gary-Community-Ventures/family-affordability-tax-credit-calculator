@@ -1,4 +1,4 @@
-type WhiteLabels =
+export type WhiteLabels =
 	| 'gac'
 	| 'pueblo_united_way'
 	| 'dabc'
@@ -19,7 +19,7 @@ export const WHITE_LABELS: WhiteLabels[] = [
 	'arapahoe'
 ];
 
-type Colors = {
+export type Colors = {
 	primary: string;
 	secondary: string;
 	headerColor?: string;
@@ -72,7 +72,7 @@ export const WHITE_LABEL_COLORS: {
 	}
 };
 
-type Links = {
+export type Links = {
 	fileOnline: string;
 	fileInPerson: string;
 	paidFiling: string;
