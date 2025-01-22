@@ -3,6 +3,9 @@
 	import t, { locale } from '$lib/i18n/i18n-svelte';
 	import { PUBLIC_MFB_FRONTEND_DOMAIN } from '$env/static/public';
 	import { onMount } from 'svelte';
+	import { WHITE_LABEL_LINKS, type Links } from './whiteLabelData';
+	import { browser } from '$app/environment';
+	import { page } from '$app/stores';
 
 	export let taxCredits: TaxCredit[];
 	export let lang: string = 'en';
@@ -31,6 +34,18 @@
 	onMount(() => {
 		container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	});
+
+	let links: Links = WHITE_LABEL_LINKS._default;
+
+	let whiteLabel = $page.params.whiteLabel;
+
+	$: {
+		if (!browser) {
+			break $;
+		}
+
+		links = WHITE_LABEL_LINKS[whiteLabel] ?? WHITE_LABEL_LINKS._default;
+	}
 </script>
 
 <div class="container" bind:this={container}>
@@ -81,27 +96,21 @@
 	<div class="section links">
 		<h3 class="primary-heading ways-to-file">{$t.RESULTS.FILE_FOR_FREE.TITLE()}</h3>
 		<div class="link-container">
-			<a
-				href="https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=get_ahead&utm_term=english&utm_content=myfreetaxes"
-				target="_blank"
-				class="primary-button">{$t.RESULTS.FILE_FOR_FREE.ONLINE()}</a
+			<a href={links.fileOnline} target="_blank" class="primary-button"
+				>{$t.RESULTS.FILE_FOR_FREE.ONLINE()}</a
 			>
 		</div>
 		<div class="link-container">
-			<a
-				href="https://taxhelpco.org/get-free-tax-help/find-a-free-tax-site/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=get_ahead&utm_term=english&utm_content=taxhelpcolorado_vita"
-				target="_blank"
-				class="primary-button">{$t.RESULTS.FILE_FOR_FREE.IN_PERSON()}</a
+			<a href={links.fileInPerson} target="_blank" class="primary-button"
+				>{$t.RESULTS.FILE_FOR_FREE.IN_PERSON()}</a
 			>
 		</div>
 		<h3 class="primary-heading other-filing-options ways-to-file">
 			{$t.RESULTS.OTHER_FILING_OPTIONS.TITLE()}
 		</h3>
 		<div class="link-container">
-			<a
-				href="https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calcu[…]ions&utm_id=get_ahead&utm_term=english&utm_content=mfb_page"
-				target="_blank"
-				class="primary-button">{$t.RESULTS.OTHER_FILING_OPTIONS.PAID()}</a
+			<a href={links.paidFiling} target="_blank" class="primary-button"
+				>{$t.RESULTS.OTHER_FILING_OPTIONS.PAID()}</a
 			>
 		</div>
 	</div>

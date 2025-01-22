@@ -20,11 +20,15 @@
 	}
 
 	:root {
-		font-family: sans-serif;
+		font-family: trade-gothic-next-condensed, sans-serif;
 		accent-color: var(--primary-color);
 		--primary-color: #264e5e;
 		--secondary-color: #9dcdc9;
-		--text-color: #212426;
+		--header-color: var(--primary-color);
+	}
+
+	:global(button) {
+		font-family: trade-gothic-next-condensed, sans-serif;
 	}
 
 	:global(input:not([type='checkbox']), select) {
@@ -68,7 +72,7 @@
 
 	:global(.primary-heading) {
 		background-color: var(--secondary-color);
-		color: var(--primary-color);
+		color: var(--header-color);
 		font-size: 2rem;
 		font-weight: bold;
 		padding: 0.6rem 0.5rem;
