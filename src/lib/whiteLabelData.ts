@@ -1,3 +1,6 @@
+import { locale } from './i18n/i18n-svelte';
+import type { Locales } from './i18n/i18n-types';
+
 export type WhiteLabels =
 	| 'gac'
 	| 'pueblo_united_way'
@@ -78,77 +81,37 @@ export type Links = {
 	paidFiling: string;
 };
 
-export const WHITE_LABEL_LINKS: {
-	[key: string]: Links | undefined;
-	_default: Links;
-} = {
-	_default: {
-		fileOnline: 'https://myfreetaxes.com/',
-		fileInPerson: 'https://www.getaheadcolorado.org/fileinperson/',
-		paidFiling: 'https://co.myfriendben.org/paid-tax-filing-options/'
-	},
-	gac: {
-		fileOnline:
-			'https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=get_ahead&utm_term=english&utm_content=myfreetaxes',
-		fileInPerson:
-			'https://www.getaheadcolorado.org/fileinperson?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=get_ahead&utm_term=english&utm_content=gac_file_in_person',
-		paidFiling:
-			'https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=get_ahead&utm_term=english&utm_content=mfb_page'
-	},
-	pueblo_united_way: {
-		fileOnline:
-			'https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=pueblo_united_way&utm_term=english&utm_content=myfreetaxes',
-		fileInPerson:
-			'https://www.getaheadcolorado.org/fileinperson?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=pueblo_united_way&utm_term=english&utm_content=gac_file_in_person',
-		paidFiling:
-			'https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=pueblo_united_way&utm_term=english&utm_content=mfb_page'
-	},
-	dabc: {
-		fileOnline:
-			'https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=dabc&utm_term=english&utm_content=myfreetaxes',
-		fileInPerson:
-			'https://www.getaheadcolorado.org/fileinperson?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=dabc&utm_term=english&utm_content=gac_file_in_person',
-		paidFiling:
-			'https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=dabc&utm_term=english&utm_content=mfb_page'
-	},
-	alg: {
-		fileOnline:
-			'https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=alg&utm_term=english&utm_content=myfreetaxes',
-		fileInPerson:
-			'https://www.getaheadcolorado.org/fileinperson?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=alg&utm_term=english&utm_content=gac_file_in_person',
-		paidFiling:
-			'https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=alg&utm_term=english&utm_content=mfb_page'
-	},
-	servicios: {
-		fileOnline:
-			'https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=servicios&utm_term=english&utm_content=myfreetaxes',
-		fileInPerson:
-			'https://www.getaheadcolorado.org/fileinperson?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=servicios&utm_term=english&utm_content=gac_file_in_person',
-		paidFiling:
-			'https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=servicios&utm_term=english&utm_content=mfb_page'
-	},
-	jeffco: {
-		fileOnline:
-			'https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=jeffco&utm_term=english&utm_content=myfreetaxes',
-		fileInPerson:
-			'https://www.getaheadcolorado.org/fileinperson?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=jeffco&utm_term=english&utm_content=gac_file_in_person',
-		paidFiling:
-			'https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=jeffco&utm_term=english&utm_content=mfb_page'
-	},
-	adams: {
-		fileOnline:
-			'https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=adams&utm_term=english&utm_content=myfreetaxes',
-		fileInPerson:
-			'https://www.getaheadcolorado.org/fileinperson?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=adams&utm_term=english&utm_content=gac_file_in_person',
-		paidFiling:
-			'https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=adams&utm_term=english&utm_content=mfb_page'
-	},
-	arapahoe: {
-		fileOnline:
-			'https://myfreetaxes.com/?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=arapahoe&utm_term=english&utm_content=myfreetaxes',
-		fileInPerson:
-			'https://www.getaheadcolorado.org/fileinperson?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=arapahoe&utm_term=english&utm_content=gac_file_in_person',
-		paidFiling:
-			'https://co.myfriendben.org/paid-tax-filing-options/?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=arapahoe&utm_term=english&utm_content=mfb_page'
-	}
+const BASE_LINKS: Links = {
+	fileOnline: 'https://myfreetaxes.com/',
+	fileInPerson: 'https://www.getaheadcolorado.org/fileinperson/',
+	paidFiling: 'https://co.myfriendben.org/paid-tax-filing-options/'
 };
+
+const SPANISH_BASE_LINKS: Links = {
+	fileOnline: 'https://myfreetaxes.com/es/',
+	fileInPerson: 'https://www.getaheadcolorado.org/fileinperson/',
+	paidFiling: 'https://co.myfriendben.org/opciones-de-presentacion-de-impuestos-pagados/'
+};
+
+export function generateLinks(lang: Locales, whiteLabel?: string): Links {
+	let baseLinks = BASE_LINKS;
+	let language = 'english';
+	if (lang === 'es') {
+		baseLinks = SPANISH_BASE_LINKS;
+		language = 'spanish';
+	}
+
+	if (whiteLabel === undefined) {
+		return baseLinks;
+	}
+
+	if (whiteLabel === 'gac') {
+		whiteLabel = 'get_ahead';
+	}
+
+	return {
+		fileOnline: `${baseLinks.paidFiling}?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=${whiteLabel}&utm_term=${language}&utm_content=myfreetaxes`,
+		fileInPerson: `${baseLinks.fileInPerson}?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=${whiteLabel}&utm_term=${language}&utm_content=gac_file_in_person`,
+		paidFiling: `${baseLinks.paidFiling}?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=${whiteLabel}&utm_term=${language}&utm_content=mfb_page`
+	};
+}

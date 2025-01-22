@@ -3,15 +3,11 @@
 	import t, { locale } from '$lib/i18n/i18n-svelte';
 	import { PUBLIC_MFB_FRONTEND_DOMAIN } from '$env/static/public';
 	import { onMount } from 'svelte';
-	import { WHITE_LABEL_LINKS, type Links } from './whiteLabelData';
+	import { generateLinks, type Links } from './whiteLabelData';
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 
 	export let taxCredits: TaxCredit[];
-	export let lang: string = 'en';
-
-	let formattedLang = lang;
-	$: formattedLang = lang === 'en' ? 'en-us' : lang;
 
 	let total = 0;
 	$: total = taxCredits.reduce((acc, credit) => acc + credit.value, 0);
@@ -35,16 +31,10 @@
 		container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	});
 
-	let links: Links = WHITE_LABEL_LINKS._default;
-
 	let whiteLabel = $page.params.whiteLabel;
-
+	let links: Links;
 	$: {
-		if (!browser) {
-			break $;
-		}
-
-		links = WHITE_LABEL_LINKS[whiteLabel] ?? WHITE_LABEL_LINKS._default;
+		links = generateLinks($locale, whiteLabel)
 	}
 </script>
 
