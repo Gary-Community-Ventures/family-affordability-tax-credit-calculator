@@ -167,9 +167,9 @@
 		padding: 0.2em 0;
 	}
 
-	.ip-pin-link {
-		color: var(--primary-color);
-	}
+	/* .ip-pin-link { */
+	/* 	color: var(--primary-color); */
+	/* } */
 
 	.link-container,
 	.mfb-link-container {
