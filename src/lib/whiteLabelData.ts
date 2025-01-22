@@ -84,7 +84,7 @@ export const WHITE_LABEL_LINKS: {
 } = {
 	_default: {
 		fileOnline: 'https://myfreetaxes.com/',
-		fileInPerson: 'https://taxhelpco.org/get-free-tax-help/find-a-free-tax-site/',
+		fileInPerson: 'https://www.getaheadcolorado.org/fileinperson/',
 		paidFiling: 'https://co.myfriendben.org/paid-tax-filing-options/'
 	},
 	gac: {
