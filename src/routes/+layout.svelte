@@ -31,6 +31,26 @@
 		font-family: trade-gothic-next-condensed, sans-serif;
 	}
 
+	/* fix the select on Safari */
+	:global(select::-ms-expand) {
+		display: none;
+	}
+
+	:global(select) {
+		box-shadow: none;
+		outline: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		background: transparent;
+		background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSdibGFjaycgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyB3aWR0aD0nMjQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTcgMTBsNSA1IDUtNXonLz48cGF0aCBkPSdNMCAwaDI0djI0SDB6JyBmaWxsPSdub25lJy8+PC9zdmc+);
+		background-repeat: no-repeat;
+		background-position-x: 21px;
+		background-position-y: 0px;
+		border: 1px solid #dfdfdf;
+		padding: 5px;
+		width: 44px;
+	}
+
 	:global(input:not([type='checkbox']), select) {
 		height: 2em;
 		width: 20em;
