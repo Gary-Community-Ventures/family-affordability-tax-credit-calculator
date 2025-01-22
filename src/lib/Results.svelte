@@ -4,7 +4,6 @@
 	import { PUBLIC_MFB_FRONTEND_DOMAIN } from '$env/static/public';
 	import { onMount } from 'svelte';
 	import { generateLinks, type Links } from './whiteLabelData';
-	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 
 	export let taxCredits: TaxCredit[];
