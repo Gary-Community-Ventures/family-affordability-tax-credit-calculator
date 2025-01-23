@@ -1,9 +1,8 @@
 <script lang="ts">
 	import type { TaxCredit } from './mfbApi';
 	import t, { locale } from '$lib/i18n/i18n-svelte';
-	import { PUBLIC_MFB_FRONTEND_DOMAIN } from '$env/static/public';
 	import { onMount } from 'svelte';
-	import { generateLinks, type Links } from './whiteLabelData';
+	import { generateLinks, generateMfbLink, type Links } from './whiteLabelData';
 	import { page } from '$app/stores';
 
 	export let taxCredits: TaxCredit[];
@@ -33,8 +32,10 @@
 	let whiteLabel = $page.params.whiteLabel;
 	let links: Links;
 	$: {
-		links = generateLinks($locale, whiteLabel)
+		links = generateLinks($locale, whiteLabel);
 	}
+
+	let mfbLink = generateMfbLink($locale, whiteLabel);
 </script>
 
 <div class="container" bind:this={container}>
@@ -108,9 +109,7 @@
 <h2 class="primary-heading">{$t.RESULTS.MFB.TITLE()}</h2>
 <p class="mfb-description">{$t.RESULTS.MFB.DESCRIPTION()}</p>
 <div class="mfb-link-container">
-	<a href={`${PUBLIC_MFB_FRONTEND_DOMAIN}/co/step-1?referrer=gac`} class="primary-button"
-		>{$t.RESULTS.MFB.BUTTON()}</a
-	>
+	<a href={mfbLink} class="primary-button">{$t.RESULTS.MFB.BUTTON()}</a>
 </div>
 
 <style>

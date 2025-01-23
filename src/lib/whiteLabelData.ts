@@ -1,3 +1,4 @@
+import { PUBLIC_MFB_FRONTEND_DOMAIN } from '$env/static/public';
 import { locale } from './i18n/i18n-svelte';
 import type { Locales } from './i18n/i18n-types';
 
@@ -114,4 +115,26 @@ export function generateLinks(lang: Locales, whiteLabel?: string): Links {
 		fileInPerson: `${baseLinks.fileInPerson}?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=${whiteLabel}&utm_term=${language}&utm_content=gac_file_in_person`,
 		paidFiling: `${baseLinks.paidFiling}?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=${whiteLabel}&utm_term=${language}&utm_content=mfb_page`
 	};
+}
+
+export function generateMfbLink(lang: Locales, whiteLabel?: string) {
+	let link = PUBLIC_MFB_FRONTEND_DOMAIN;
+
+	// Automatically switch the language to Spanish
+	if (lang === 'es') {
+		link += '/es';
+	}
+
+	link += '/co/step-1';
+
+	// Link to existing referrers in MFB
+	if (whiteLabel === 'gac') {
+		link += '?referrer=gac';
+	} else if (whiteLabel === 'jeffco') {
+		link += '?referrer=jeffcoHS';
+	} else if (whiteLabel === 'adams') {
+		link += '?referrer=achs';
+	}
+
+	return link;
 }
