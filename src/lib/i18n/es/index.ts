@@ -16,11 +16,11 @@ const es = {
 			},
 			CHILDREN: {
 				ZERO_TO_4: {
-					QUESTION: '¿Cuántos hijos menores de 5 años tiene?',
+					QUESTION: '¿Cuántos hijos menores de 6 años tenías al finalizar el 2024?',
 					LABEL: 'Número de niños'
 				},
 				FIVE_TO_16: {
-					QUESTION: '¿Cuántos hijos entre 6 y 16 años tienes?',
+					QUESTION: '¿Cuántos hijos entre 6 y 16 años tenías al finalizar el 2024?',
 					LABEL: 'Número de niños'
 				},
 				ERROR: 'El tamaño máximo del hogar es 8'

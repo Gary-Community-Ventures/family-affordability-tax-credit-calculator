@@ -16,11 +16,12 @@ const en = {
 			},
 			CHILDREN: {
 				ZERO_TO_4: {
-					QUESTION: 'How many children under age 5 do you have?',
+					QUESTION: 'How many children under age 6 did you have at the end of 2024?',
 					LABEL: 'Number of children'
 				},
 				FIVE_TO_16: {
-					QUESTION: 'How many children between the ages of 6 and 16 do you have?',
+					QUESTION:
+						'How many children between the ages of 6 and 16 did you have at the end of 2024?',
 					LABEL: 'Number of children'
 				},
 				ERROR: 'The max household size is 8'
