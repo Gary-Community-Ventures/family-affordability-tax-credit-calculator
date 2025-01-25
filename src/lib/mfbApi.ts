@@ -102,7 +102,7 @@ export default class MfbApi {
 		for (const program of data.programs) {
 			if (this.TAX_CREDIT_NAMES.includes(program.external_name)) {
 				if (this.CHILD_TAX_CREDIT_NAME === program.external_name) {
-					program.extimated_value = this.#fixCtc(program.estimated_value);
+					program.estimated_value = this.#fixCtc(program.estimated_value);
 				}
 				credits.push({ id: program.external_name, value: program.estimated_value });
 			}
@@ -238,13 +238,19 @@ export default class MfbApi {
 
 	#fixCtc(ctcAmount: number) {
 		const income = this.#calcIncome();
-		const incomeTax = this.#calcTaxes();
-		console.log(incomeTax);
 
-		if (income < 2_500) {
-			return Math.min(incomeTax, ctcAmount);
-		} else {
-			return Math.min(incomeTax + (income - 2500) * 0.15, ctcAmount);
-		}
+		let additionalCtc = (income - 2_500) * 0.15;
+		additionalCtc = Math.min(ctcAmount, Math.max(0, additionalCtc));
+
+		const incomeTax = this.#calcTaxes();
+		console.log({
+			income,
+			additionalCtc,
+			incomeTax,
+			combined: incomeTax + additionalCtc,
+			ctcAmount
+		});
+
+		return Math.min(incomeTax + additionalCtc, ctcAmount);
 	}
 }
