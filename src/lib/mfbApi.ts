@@ -205,12 +205,10 @@ export default class MfbApi {
 	#fixCtc(ctcAmount: number) {
 		const income = this.#calcIncome();
 
-		if ((income - 2_500) * 0.15 > ctcAmount) {
-			return ctcAmount;
-		} else if (income < 2_500) {
-			return income * 0.1;
+		if (income < 2_500) {
+			return Math.min(income * 0.1, ctcAmount);
 		} else {
-			return (income - 2_500) * 0.15 + income * 0.1;
+			return Math.min((income - 2_500) * 0.15 + income * 0.1, ctcAmount);
 		}
 	}
 }
