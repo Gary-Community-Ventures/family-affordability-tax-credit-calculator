@@ -37,6 +37,8 @@ export default class MfbApi {
 		'co_tax_credit_fatc'
 	];
 
+	CHILD_TAX_CREDIT_NAME = 'co_tax_credit_ctc';
+
 	uuid: string | null;
 	id: string | null;
 	isMarried: boolean;
@@ -89,6 +91,9 @@ export default class MfbApi {
 		const credits: TaxCredit[] = [];
 		for (const program of data.programs) {
 			if (this.TAX_CREDIT_NAMES.includes(program.external_name)) {
+				if (this.CHILD_TAX_CREDIT_NAME === program.external_name) {
+					program.extimated_value = this.#fixCtc(program.estimated_value);
+				}
 				credits.push({ id: program.external_name, value: program.estimated_value });
 			}
 		}
@@ -166,5 +171,46 @@ export default class MfbApi {
 		}
 
 		return `${PUBLIC_MFB_DOMAIN}/api/eligibility/${this.uuid}`;
+	}
+
+	#calcIncome() {
+		let total = 0;
+
+		for (const income of this.incomes) {
+			switch (income.frequency) {
+				case 'weekly':
+					total += Number(income.amount) * 52;
+					break;
+				case 'biweekly':
+					total += Number(income.amount) * 26;
+					break;
+				case 'semimonthly':
+					total += Number(income.amount) * 24;
+					break;
+				case 'monthly':
+					total += Number(income.amount) * 12;
+					break;
+				case 'yearly':
+					total += Number(income.amount);
+					break;
+				case 'hourly':
+					total += Number(income.amount) * Number(income.hours) * 52;
+					break;
+			}
+		}
+
+		return total;
+	}
+
+	#fixCtc(ctcAmount: number) {
+		const income = this.#calcIncome();
+
+		if ((income - 2500) * 0.15 > ctcAmount) {
+			return ctcAmount;
+		} else if (income - 2500 < 0) {
+			return 0;
+		} else {
+			return (income - 2500) * 0.15;
+		}
 	}
 }
