@@ -45,6 +45,16 @@ export default class MfbApi {
 	childAges: number[];
 	incomes: IncomeType[];
 
+	TAX_BRACKETS: [number, number][] = [
+		[11_600, 0.1],
+		[47_150, 0.12],
+		[100_525, 0.22],
+		[191_950, 0.24],
+		[243_725, 0.32],
+		[609_350, 0.35],
+		[Infinity, 0.37]
+	];
+
 	constructor() {
 		this.isMarried = false;
 		this.childAges = [];
@@ -202,13 +212,39 @@ export default class MfbApi {
 		return total;
 	}
 
+	#calcTaxes() {
+		const income = this.#calcIncome();
+		let prevLimit = 0;
+		let total = 0;
+
+		for (const [singleLimit, percent] of this.TAX_BRACKETS) {
+			let limit = singleLimit;
+			if (this.isMarried) {
+				limit *= 2;
+			}
+			const incomeInBracket = Math.min(income - prevLimit, limit - prevLimit);
+
+			// check if the bracket is over the income
+			if (incomeInBracket < 0) {
+				break;
+			}
+
+			total += incomeInBracket * percent;
+			prevLimit = limit;
+		}
+
+		return total;
+	}
+
 	#fixCtc(ctcAmount: number) {
 		const income = this.#calcIncome();
+		const incomeTax = this.#calcTaxes();
+		console.log(incomeTax);
 
 		if (income < 2_500) {
-			return Math.min(income * 0.1, ctcAmount);
+			return Math.min(incomeTax, ctcAmount);
 		} else {
-			return Math.min((income - 2_500) * 0.15 + income * 0.1, ctcAmount);
+			return Math.min(incomeTax + (income - 2500) * 0.15, ctcAmount);
 		}
 	}
 }
