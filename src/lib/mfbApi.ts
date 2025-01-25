@@ -208,9 +208,9 @@ export default class MfbApi {
 		if ((income - 2_500) * 0.15 > ctcAmount) {
 			return ctcAmount;
 		} else if (income < 2_500) {
-			return income * .1;
+			return income * 0.1;
 		} else {
-			return (income - 2_500) * 0.15;
+			return (income - 2_500) * 0.15 + income * 0.1;
 		}
 	}
 }
