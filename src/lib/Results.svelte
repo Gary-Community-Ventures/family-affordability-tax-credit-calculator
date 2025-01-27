@@ -109,7 +109,7 @@
 <h2 class="primary-heading">{$t.RESULTS.MFB.TITLE()}</h2>
 <p class="mfb-description">{$t.RESULTS.MFB.DESCRIPTION()}</p>
 <div class="mfb-link-container">
-	<a href={mfbLink} class="primary-button">{$t.RESULTS.MFB.BUTTON()}</a>
+	<a href={mfbLink} class="primary-button" target="_blank">{$t.RESULTS.MFB.BUTTON()}</a>
 </div>
 
 <style>
