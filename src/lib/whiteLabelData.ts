@@ -111,7 +111,7 @@ export function generateLinks(lang: Locales, whiteLabel?: string): Links {
 	}
 
 	return {
-		fileOnline: `${baseLinks.paidFiling}?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=${whiteLabel}&utm_term=${language}&utm_content=myfreetaxes`,
+		fileOnline: `${baseLinks.fileOnline}?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=${whiteLabel}&utm_term=${language}&utm_content=myfreetaxes`,
 		fileInPerson: `${baseLinks.fileInPerson}?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=${whiteLabel}&utm_term=${language}&utm_content=gac_file_in_person`,
 		paidFiling: `${baseLinks.paidFiling}?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=${whiteLabel}&utm_term=${language}&utm_content=mfb_page`
 	};
