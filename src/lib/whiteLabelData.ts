@@ -90,7 +90,7 @@ const BASE_LINKS: Links = {
 
 const SPANISH_BASE_LINKS: Links = {
 	fileOnline: 'https://myfreetaxes.com/es/',
-	fileInPerson: 'https://www.getaheadcolorado.org/fileinperson/',
+	fileInPerson: 'https://www.haciaadelantecolorado.org/fileinperson/',
 	paidFiling: 'https://co.myfriendben.org/opciones-de-presentacion-de-impuestos-pagados/'
 };
 
