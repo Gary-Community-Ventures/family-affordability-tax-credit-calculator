@@ -98,7 +98,7 @@ const en = {
 			PAID: 'PAID FILING OPTIONS'
 		},
 		DISCLAIMER:
-			'Based on the income information you provided, this is the total amount of credits you will be eligible for. The final refund you receive will be based on this number minus any liabilities you may owe. Filers who receive all or most of their income from a W-2 earning job will likely receive nearly all of the value of these credits in a refund.',
+			'Based on the income information you provided, this is the total amount of credits you may be eligible for. The final refund you receive will be based on this number minus any liabilities you may owe. Filers who receive all or most of their income from a W-2 earning job will likely receive nearly all of the value of these credits in a refund.',
 		MFB: {
 			TITLE: 'OTHER BENEFITS',
 			DESCRIPTION:

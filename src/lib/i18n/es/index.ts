@@ -98,7 +98,7 @@ const es = {
 			PAID: 'OPCIONES DE PRESENTACIÓN PAGADAS'
 		},
 		DISCLAIMER:
-			'Según la información de ingresos que proporcionó, esta es la cantidad total de créditos para los que será elegible. El reembolso final que reciba se basará en este número menos cualquier responsabilidad que pueda deber. Los contribuyentes que reciben todos o la mayor parte de sus ingresos de un trabajo con salario W-2 probablemente recibirán casi todo el valor de estos créditos en un reembolso.',
+			'Según la información de ingresos que proporcionó, esta es la cantidad total de créditos para los que puede ser elegible. El reembolso final que reciba se basará en este número menos cualquier obligación que pueda tener. Los contribuyentes que reciben todo o la mayor parte de sus ingresos de un trabajo con salario W-2 probablemente recibirán casi todo el valor de estos créditos en un reembolso.',
 		MFB: {
 			TITLE: 'OTROS BENEFICIOS',
 			DESCRIPTION:
