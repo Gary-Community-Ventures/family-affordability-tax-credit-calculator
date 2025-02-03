@@ -1,5 +1,4 @@
 import { PUBLIC_MFB_FRONTEND_DOMAIN } from '$env/static/public';
-import { locale } from './i18n/i18n-svelte';
 import type { Locales } from './i18n/i18n-types';
 
 export type WhiteLabels =
@@ -110,9 +109,16 @@ export function generateLinks(lang: Locales, whiteLabel?: string): Links {
 		whiteLabel = 'get_ahead';
 	}
 
+	let fileInPersonLink = `${baseLinks.fileInPerson}?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=${whiteLabel}&utm_term=${language}&utm_content=gac_file_in_person`;
+
+	if (whiteLabel === 'alg') {
+		fileInPersonLink =
+			'https://docs.google.com/forms/d/e/1FAIpQLSeoBcGExQVk4v1DzXeo8BDvyx4vdQFstsoW9A9sUvAnvOb_zA/viewform';
+	}
+
 	return {
 		fileOnline: `${baseLinks.fileOnline}?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_online&utm_id=${whiteLabel}&utm_term=${language}&utm_content=myfreetaxes`,
-		fileInPerson: `${baseLinks.fileInPerson}?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=${whiteLabel}&utm_term=${language}&utm_content=gac_file_in_person`,
+		fileInPerson: fileInPersonLink,
 		paidFiling: `${baseLinks.paidFiling}?utm_source=online&utm_medium=calculator&utm_campaign=paid_filing_options&utm_id=${whiteLabel}&utm_term=${language}&utm_content=mfb_page`
 	};
 }
