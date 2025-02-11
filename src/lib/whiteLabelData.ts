@@ -114,6 +114,9 @@ export function generateLinks(lang: Locales, whiteLabel?: string): Links {
 	if (whiteLabel === 'alg') {
 		fileInPersonLink =
 			'https://docs.google.com/forms/d/e/1FAIpQLSeoBcGExQVk4v1DzXeo8BDvyx4vdQFstsoW9A9sUvAnvOb_zA/viewform';
+	} else if (whiteLabel === 'pueblo_united_way') {
+		fileInPersonLink =
+			'https://www.pueblounitedway.org/vita#file-in-person?utm_source=online&utm_medium=calculator&utm_campaign=file_for_free_in_person&utm_id=pueblo_united_way&utm_term=english&utm_content=gac_file_in_person';
 	}
 
 	return {
