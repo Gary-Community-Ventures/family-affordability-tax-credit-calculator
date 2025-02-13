@@ -243,13 +243,6 @@ export default class MfbApi {
 		additionalCtc = Math.min(ctcAmount, Math.max(0, additionalCtc));
 
 		const incomeTax = this.#calcTaxes();
-		console.log({
-			income,
-			additionalCtc,
-			incomeTax,
-			combined: incomeTax + additionalCtc,
-			ctcAmount
-		});
 
 		return Math.min(incomeTax + additionalCtc, ctcAmount);
 	}
