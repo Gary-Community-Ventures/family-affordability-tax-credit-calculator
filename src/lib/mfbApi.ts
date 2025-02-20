@@ -109,7 +109,7 @@ export default class MfbApi {
 		}
 
 		// @ts-ignore TS does not know about the GA
-		gtag('event', 'results_shown', { uuid: this.uuid });
+		window.dataLayer.push({ event: 'results_shown', uuid: this.uuid });
 
 		return credits;
 	}
