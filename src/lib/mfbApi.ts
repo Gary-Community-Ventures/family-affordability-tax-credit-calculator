@@ -37,23 +37,11 @@ export default class MfbApi {
 		'co_tax_credit_fatc'
 	];
 
-	CHILD_TAX_CREDIT_NAME = 'co_tax_credit_ctc';
-
 	uuid: string | null;
 	id: string | null;
 	isMarried: boolean;
 	childAges: number[];
 	incomes: IncomeType[];
-
-	TAX_BRACKETS: [number, number][] = [
-		[11_600, 0.1],
-		[47_150, 0.12],
-		[100_525, 0.22],
-		[191_950, 0.24],
-		[243_725, 0.32],
-		[609_350, 0.35],
-		[Infinity, 0.37]
-	];
 
 	constructor() {
 		this.isMarried = false;
@@ -101,9 +89,6 @@ export default class MfbApi {
 		const credits: TaxCredit[] = [];
 		for (const program of data.programs) {
 			if (this.TAX_CREDIT_NAMES.includes(program.external_name)) {
-				if (this.CHILD_TAX_CREDIT_NAME === program.external_name) {
-					program.estimated_value = this.#fixCtc(program.estimated_value);
-				}
 				credits.push({ id: program.external_name, value: program.estimated_value });
 			}
 		}
@@ -181,69 +166,5 @@ export default class MfbApi {
 		}
 
 		return `${PUBLIC_MFB_DOMAIN}/api/eligibility/${this.uuid}`;
-	}
-
-	#calcIncome() {
-		let total = 0;
-
-		for (const income of this.incomes) {
-			switch (income.frequency) {
-				case 'weekly':
-					total += Number(income.amount) * 52;
-					break;
-				case 'biweekly':
-					total += Number(income.amount) * 26;
-					break;
-				case 'semimonthly':
-					total += Number(income.amount) * 24;
-					break;
-				case 'monthly':
-					total += Number(income.amount) * 12;
-					break;
-				case 'yearly':
-					total += Number(income.amount);
-					break;
-				case 'hourly':
-					total += Number(income.amount) * Number(income.hours) * 52;
-					break;
-			}
-		}
-
-		return total;
-	}
-
-	#calcTaxes() {
-		const income = this.#calcIncome();
-		let prevLimit = 0;
-		let total = 0;
-
-		for (const [singleLimit, percent] of this.TAX_BRACKETS) {
-			let limit = singleLimit;
-			if (this.isMarried) {
-				limit *= 2;
-			}
-			const incomeInBracket = Math.min(income - prevLimit, limit - prevLimit);
-
-			// check if the bracket is over the income
-			if (incomeInBracket < 0) {
-				break;
-			}
-
-			total += incomeInBracket * percent;
-			prevLimit = limit;
-		}
-
-		return total;
-	}
-
-	#fixCtc(ctcAmount: number) {
-		const income = this.#calcIncome();
-
-		let additionalCtc = (income - 2_500) * 0.15;
-		additionalCtc = Math.min(ctcAmount, Math.max(0, additionalCtc));
-
-		const incomeTax = this.#calcTaxes();
-
-		return Math.min(incomeTax + additionalCtc, ctcAmount);
 	}
 }
