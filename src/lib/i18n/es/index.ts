@@ -95,7 +95,8 @@ const es = {
 		},
 		OTHER_FILING_OPTIONS: {
 			TITLE: 'OTRAS OPCIONES DE PRESENTACIÓN',
-			PAID: 'OPCIONES DE PRESENTACIÓN PAGADAS'
+			PAID: 'OPCIONES DE PRESENTACIÓN PAGADAS',
+			FREE_TAX_USA: 'FREETAXUSA ONLINE FILING'
 		},
 		DISCLAIMER:
 			'Según la información de ingresos que proporcionó, esta es la cantidad total de créditos para los que puede ser elegible. El reembolso final que reciba se basará en este número menos cualquier obligación que pueda tener. Los contribuyentes que reciben todo o la mayor parte de sus ingresos de un trabajo con salario W-2 probablemente recibirán casi todo el valor de estos créditos en un reembolso.',

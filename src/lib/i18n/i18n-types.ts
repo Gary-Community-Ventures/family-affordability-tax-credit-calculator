@@ -22,7 +22,7 @@ type RootTranslation = {
 		 */
 		TITLE: string
 		/**
-		 * F​a​m​i​l​i​e​s​ ​w​i​t​h​ ​c​h​i​l​d​r​e​n​ ​i​n​ ​C​o​l​o​r​a​d​o​ ​n​o​w​ ​h​a​v​e​ ​a​c​c​e​s​s​ ​t​o​ ​m​o​r​e​ ​t​a​x​ ​c​r​e​d​i​t​s​ ​t​h​a​n​ ​e​v​e​r​ ​b​e​f​o​r​e​!​ ​I​n​ ​2​0​2​5​,​ ​f​a​m​i​l​i​e​s​ ​c​a​n​ ​e​x​p​e​c​t​ ​t​o​ ​r​e​c​e​i​v​e​ ​b​e​t​w​e​e​n​ ​$​2​K​ ​t​o​ ​$​1​0​k​ ​p​e​r​ ​c​h​i​l​d​ ​i​n​ ​c​r​e​d​i​t​s​ ​w​h​e​n​ ​f​i​l​i​n​g​ ​t​h​e​i​r​ ​t​a​x​e​s​.​ ​I​n​ ​l​e​s​s​ ​t​h​a​n​ ​6​0​ ​s​e​c​o​n​d​s​,​ ​y​o​u​ ​c​a​n​ ​f​i​n​d​ ​o​u​t​ ​h​o​w​ ​m​u​c​h​ ​y​o​u​ ​c​o​u​l​d​ ​b​e​n​e​f​i​t​ ​b​y​ ​a​n​s​w​e​r​i​n​g​ ​t​h​e​s​e​ ​s​i​m​p​l​e​ ​q​u​e​s​t​i​o​n​s​.
+		 * F​a​m​i​l​i​e​s​ ​w​i​t​h​ ​c​h​i​l​d​r​e​n​ ​i​n​ ​C​o​l​o​r​a​d​o​ ​n​o​w​ ​h​a​v​e​ ​a​c​c​e​s​s​ ​t​o​ ​m​o​r​e​ ​t​a​x​ ​c​r​e​d​i​t​s​ ​t​h​a​n​ ​e​v​e​r​ ​b​e​f​o​r​e​!​ ​I​n​ ​2​0​2​5​,​ ​f​a​m​i​l​i​e​s​ ​m​a​y​ ​r​e​c​e​i​v​e​ ​b​e​t​w​e​e​n​ ​2​k​ ​a​n​d​ ​1​0​k​ ​p​e​r​ ​c​h​i​l​d​ ​i​n​ ​c​r​e​d​i​t​s​ ​w​h​e​n​ ​f​i​l​i​n​g​ ​t​h​e​i​r​ ​t​a​x​e​s​.​ ​I​n​ ​l​e​s​s​ ​t​h​a​n​ ​6​0​ ​s​e​c​o​n​d​s​,​ ​y​o​u​ ​c​a​n​ ​f​i​n​d​ ​o​u​t​ ​h​o​w​ ​m​u​c​h​ ​y​o​u​ ​c​o​u​l​d​ ​b​e​n​e​f​i​t​ ​b​y​ ​a​n​s​w​e​r​i​n​g​ ​t​h​e​s​e​ ​s​i​m​p​l​e​ ​q​u​e​s​t​i​o​n​s​.
 		 */
 		DESCRIPTION: string
 	}
@@ -49,7 +49,7 @@ type RootTranslation = {
 			CHILDREN: {
 				ZERO_TO_4: {
 					/**
-					 * H​o​w​ ​m​a​n​y​ ​c​h​i​l​d​r​e​n​ ​u​n​d​e​r​ ​a​g​e​ ​5​ ​d​o​ ​y​o​u​ ​h​a​v​e​?
+					 * H​o​w​ ​m​a​n​y​ ​c​h​i​l​d​r​e​n​ ​u​n​d​e​r​ ​a​g​e​ ​6​ ​d​i​d​ ​y​o​u​ ​h​a​v​e​ ​a​t​ ​t​h​e​ ​e​n​d​ ​o​f​ ​2​0​2​4​?
 					 */
 					QUESTION: string
 					/**
@@ -59,7 +59,7 @@ type RootTranslation = {
 				}
 				FIVE_TO_16: {
 					/**
-					 * H​o​w​ ​m​a​n​y​ ​c​h​i​l​d​r​e​n​ ​b​e​t​w​e​e​n​ ​t​h​e​ ​a​g​e​s​ ​o​f​ ​6​ ​a​n​d​ ​1​6​ ​d​o​ ​y​o​u​ ​h​a​v​e​?
+					 * H​o​w​ ​m​a​n​y​ ​c​h​i​l​d​r​e​n​ ​b​e​t​w​e​e​n​ ​t​h​e​ ​a​g​e​s​ ​o​f​ ​6​ ​a​n​d​ ​1​6​ ​d​i​d​ ​y​o​u​ ​h​a​v​e​ ​a​t​ ​t​h​e​ ​e​n​d​ ​o​f​ ​2​0​2​4​?
 					 */
 					QUESTION: string
 					/**
@@ -196,7 +196,7 @@ type RootTranslation = {
 		CREDITS_FOUND_TITLE: RequiredParams<'0'>
 		CREDIT_NAMES: {
 			/**
-			 * E​a​r​n​e​d​ ​I​n​c​o​m​e​ ​T​a​x​ ​C​r​e​d​i​t​:
+			 * F​e​d​e​r​a​l​ ​E​a​r​n​e​d​ ​I​n​c​o​m​e​ ​T​a​x​ ​C​r​e​d​i​t​:
 			 */
 			co_tax_credit_eitc: string
 			/**
@@ -204,7 +204,7 @@ type RootTranslation = {
 			 */
 			co_tax_credit_coeitc: string
 			/**
-			 * C​h​i​l​d​ ​T​a​x​ ​C​r​e​d​i​t​:
+			 * F​e​d​e​r​a​l​ ​C​h​i​l​d​ ​T​a​x​ ​C​r​e​d​i​t​:
 			 */
 			co_tax_credit_ctc: string
 			/**
@@ -277,9 +277,13 @@ type RootTranslation = {
 			 * P​A​I​D​ ​F​I​L​I​N​G​ ​O​P​T​I​O​N​S
 			 */
 			PAID: string
+			/**
+			 * F​R​E​E​T​A​X​U​S​A​ ​O​N​L​I​N​E​ ​F​I​L​I​N​G
+			 */
+			FREE_TAX_USA: string
 		}
 		/**
-		 * B​a​s​e​d​ ​o​n​ ​t​h​e​ ​i​n​c​o​m​e​ ​i​n​f​o​r​m​a​t​i​o​n​ ​y​o​u​ ​p​r​o​v​i​d​e​d​,​ ​t​h​i​s​ ​i​s​ ​t​h​e​ ​t​o​t​a​l​ ​a​m​o​u​n​t​ ​o​f​ ​c​r​e​d​i​t​s​ ​y​o​u​ ​w​i​l​l​ ​b​e​ ​e​l​i​g​i​b​l​e​ ​f​o​r​.​ ​T​h​e​ ​f​i​n​a​l​ ​r​e​f​u​n​d​ ​y​o​u​ ​r​e​c​e​i​v​e​ ​w​i​l​l​ ​b​e​ ​b​a​s​e​d​ ​o​n​ ​t​h​i​s​ ​n​u​m​b​e​r​ ​m​i​n​u​s​ ​a​n​y​ ​l​i​a​b​i​l​i​t​i​e​s​ ​y​o​u​ ​m​a​y​ ​o​w​e​.​ ​F​i​l​e​r​s​ ​w​h​o​ ​r​e​c​e​i​v​e​ ​a​l​l​ ​o​r​ ​m​o​s​t​ ​o​f​ ​t​h​e​i​r​ ​i​n​c​o​m​e​ ​f​r​o​m​ ​a​ ​W​-​2​ ​e​a​r​n​i​n​g​ ​j​o​b​ ​w​i​l​l​ ​l​i​k​e​l​y​ ​r​e​c​e​i​v​e​ ​n​e​a​r​l​y​ ​a​l​l​ ​o​f​ ​t​h​e​ ​v​a​l​u​e​ ​o​f​ ​t​h​e​s​e​ ​c​r​e​d​i​t​s​ ​i​n​ ​a​ ​r​e​f​u​n​d​.
+		 * B​a​s​e​d​ ​o​n​ ​t​h​e​ ​i​n​c​o​m​e​ ​i​n​f​o​r​m​a​t​i​o​n​ ​y​o​u​ ​p​r​o​v​i​d​e​d​,​ ​t​h​i​s​ ​i​s​ ​t​h​e​ ​t​o​t​a​l​ ​a​m​o​u​n​t​ ​o​f​ ​c​r​e​d​i​t​s​ ​y​o​u​ ​m​a​y​ ​b​e​ ​e​l​i​g​i​b​l​e​ ​f​o​r​.​ ​T​h​e​ ​f​i​n​a​l​ ​r​e​f​u​n​d​ ​y​o​u​ ​r​e​c​e​i​v​e​ ​w​i​l​l​ ​b​e​ ​b​a​s​e​d​ ​o​n​ ​t​h​i​s​ ​n​u​m​b​e​r​ ​m​i​n​u​s​ ​a​n​y​ ​l​i​a​b​i​l​i​t​i​e​s​ ​y​o​u​ ​m​a​y​ ​o​w​e​.​ ​F​i​l​e​r​s​ ​w​h​o​ ​r​e​c​e​i​v​e​ ​a​l​l​ ​o​r​ ​m​o​s​t​ ​o​f​ ​t​h​e​i​r​ ​i​n​c​o​m​e​ ​f​r​o​m​ ​a​ ​W​-​2​ ​e​a​r​n​i​n​g​ ​j​o​b​ ​w​i​l​l​ ​l​i​k​e​l​y​ ​r​e​c​e​i​v​e​ ​n​e​a​r​l​y​ ​a​l​l​ ​o​f​ ​t​h​e​ ​v​a​l​u​e​ ​o​f​ ​t​h​e​s​e​ ​c​r​e​d​i​t​s​ ​i​n​ ​a​ ​r​e​f​u​n​d​.
 		 */
 		DISCLAIMER: string
 		MFB: {
@@ -306,7 +310,7 @@ export type TranslationFunctions = {
 		 */
 		TITLE: () => LocalizedString
 		/**
-		 * Families with children in Colorado now have access to more tax credits than ever before! In 2025, families can expect to receive between $2K to $10k per child in credits when filing their taxes. In less than 60 seconds, you can find out how much you could benefit by answering these simple questions.
+		 * Families with children in Colorado now have access to more tax credits than ever before! In 2025, families may receive between 2k and 10k per child in credits when filing their taxes. In less than 60 seconds, you can find out how much you could benefit by answering these simple questions.
 		 */
 		DESCRIPTION: () => LocalizedString
 	}
@@ -333,7 +337,7 @@ export type TranslationFunctions = {
 			CHILDREN: {
 				ZERO_TO_4: {
 					/**
-					 * How many children under age 5 do you have?
+					 * How many children under age 6 did you have at the end of 2024?
 					 */
 					QUESTION: () => LocalizedString
 					/**
@@ -343,7 +347,7 @@ export type TranslationFunctions = {
 				}
 				FIVE_TO_16: {
 					/**
-					 * How many children between the ages of 6 and 16 do you have?
+					 * How many children between the ages of 6 and 16 did you have at the end of 2024?
 					 */
 					QUESTION: () => LocalizedString
 					/**
@@ -477,7 +481,7 @@ export type TranslationFunctions = {
 		CREDITS_FOUND_TITLE: (arg0: number) => LocalizedString
 		CREDIT_NAMES: {
 			/**
-			 * Earned Income Tax Credit:
+			 * Federal Earned Income Tax Credit:
 			 */
 			co_tax_credit_eitc: () => LocalizedString
 			/**
@@ -485,7 +489,7 @@ export type TranslationFunctions = {
 			 */
 			co_tax_credit_coeitc: () => LocalizedString
 			/**
-			 * Child Tax Credit:
+			 * Federal Child Tax Credit:
 			 */
 			co_tax_credit_ctc: () => LocalizedString
 			/**
@@ -558,9 +562,13 @@ export type TranslationFunctions = {
 			 * PAID FILING OPTIONS
 			 */
 			PAID: () => LocalizedString
+			/**
+			 * FREETAXUSA ONLINE FILING
+			 */
+			FREE_TAX_USA: () => LocalizedString
 		}
 		/**
-		 * Based on the income information you provided, this is the total amount of credits you will be eligible for. The final refund you receive will be based on this number minus any liabilities you may owe. Filers who receive all or most of their income from a W-2 earning job will likely receive nearly all of the value of these credits in a refund.
+		 * Based on the income information you provided, this is the total amount of credits you may be eligible for. The final refund you receive will be based on this number minus any liabilities you may owe. Filers who receive all or most of their income from a W-2 earning job will likely receive nearly all of the value of these credits in a refund.
 		 */
 		DISCLAIMER: () => LocalizedString
 		MFB: {

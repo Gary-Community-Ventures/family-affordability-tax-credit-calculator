@@ -95,7 +95,8 @@ const en = {
 		},
 		OTHER_FILING_OPTIONS: {
 			TITLE: 'OTHER FILING OPTIONS',
-			PAID: 'PAID FILING OPTIONS'
+			PAID: 'PAID FILING OPTIONS',
+			FREE_TAX_USA: 'FREETAXUSA ONLINE FILING'
 		},
 		DISCLAIMER:
 			'Based on the income information you provided, this is the total amount of credits you may be eligible for. The final refund you receive will be based on this number minus any liabilities you may owe. Filers who receive all or most of their income from a W-2 earning job will likely receive nearly all of the value of these credits in a refund.',
