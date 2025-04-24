@@ -103,7 +103,7 @@ const en = {
 		MFB: {
 			TITLE: 'OTHER BENEFITS',
 			DESCRIPTION:
-				'To see what other benefits you may be eligible, click the button below to visit MyFriendBen.',
+				'To see what other benefits you may be eligible for, click the button below to visit MyFriendBen.',
 			BUTTON: 'MEET MYFRIENDBEN'
 		}
 	}
